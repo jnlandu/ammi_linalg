@@ -1,0 +1,190 @@
+\begin{frame}{Matrix Definitions and Notations}
+\begin{itemize}
+    \item A matrix is a rectangular arrangement of numbers organized in rows and columns, for example:
+        \begin{align*}
+            \begin{bmatrix}
+                1 & 2 & 4 & 0\\
+                -2 & 0 & 1 & \pi \\
+                2.1 & 10 & -9 & e
+            \end{bmatrix}
+        \end{align*}
+    \item Matrix dimensions are denoted as (rows) $\times$ (columns)
+        \begin{itemize}
+            \item The example above has dimensions $3\times 4$
+        \end{itemize}
+    \item Each value in a matrix is called an element, entry, or component.
+\end{itemize}
+\end{frame}
+\begin{frame}
+    \begin{itemize}
+        \item Convention: matrices are denoted with uppercase letters ($A, B, C, M$, etc.)
+        
+        \item $B_{ij}$ represents the element at row $i$, column $j$ of matrix $B$
+        \item For example, in matrix $B$:
+        \begin{align*}
+            B = \begin{bmatrix}
+                0 & 2 & -1\\
+                -1 & 1 & 0 
+            \end{bmatrix}
+        \end{align*}
+        \item $B_{12} = 2$, $B_{21} = -1$, and $B_{22} = 1$
+        \item The element $B_{ij}$ is located at the intersection of row $i$ and column $j$.
+        \item The element $B_{ij}$ is often referred to as the $(i,j)$-th entry of matrix $B$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tall, Wide, Square Matrices}
+\begin{itemize}
+    \item An $m\times n$ matrix $A$ can be characterized as:
+        \begin{itemize}
+            \item \textit{tall} when $m > n$ (more rows than columns)
+            \item \textit{wide} when $m < n$ (more columns than rows)
+            \item \textit{square} when $m = n$ (equal rows and columns)
+        \end{itemize}
+    \item Example:
+     \begin{align*}
+        (a) \; \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix},\;\; (b)\;\begin{bmatrix} 1 & 2 & 3 & 4 \\ 5 & 6 & 7 & 8 \end{bmatrix}, \; (c)\;\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{bmatrix}
+    \end{align*}
+    
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+   \begin{itemize}
+    \item Special matrix categories:
+        \begin{itemize}
+            \item An $m\times 1$ matrix forms a column vector. For instance:$\begin{bmatrix}1.2\\0\end{bmatrix}$.
+            \item A $1\times n$ matrix forms a \textit{row} vector, for instance: $[-1,\;2,\;0,\;3]$.
+            \item A $1\times 1$ matrix represents a scalar value. For instance: $\begin{bmatrix}3.14\end{bmatrix}$.
+        \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Block Matrix Structure}
+\begin{itemize}
+    \item The $i$-th row of $A$ forms an $n$-dimensional row vector:
+    \begin{align*}
+        [ A_{i1}, \cdots, A_{in}]
+    \end{align*}
+    \item A block matrix contains matrices as elements, structured as:
+    \begin{align*}
+        A = \begin{bmatrix}
+            B & C \\
+            D & E
+        \end{bmatrix}
+    \end{align*}
+    where $B$, $C$, $D$, and $E$ are submatrices (blocks) within $A$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+    \item blocks within the same row must share identical row dimensions
+    \item blocks within the same column must share identical column dimensions
+    \item Example: given 
+    \begin{align*}
+        B = [ 0 \; 2 \; 3 ], \; C = [-1] \; D = \begin{bmatrix}
+            2 & 2& 1\\
+            1 & 3 & 3
+        \end{bmatrix}, \; E = \begin{bmatrix}
+            3\\
+            2
+        \end{bmatrix}
+    \end{align*}
+    This yields 
+    \begin{align*}
+        \begin{bmatrix}
+            B & C \\
+            D & E 
+        \end{bmatrix} = \begin{bmatrix}
+            0 & 2 & 3 &-1\\
+            2 & 2 & 1 & 3 \\
+            1 & 3 & 3 & 2
+        \end{bmatrix}
+    \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diagonal and Triangular Matrices}
+\begin{itemize}
+    \item diagonal matrix: square matrix with $A_{ij} = 0$ when $i\neq j$
+    \item diag$(a_1, \ldots, a_n)$ denotes a diagonal matrix with $A_{ii}=a_i$ for $i=1, \ldots, n$
+    \item Examples of diagonal matrices:
+    \begin{align}
+        A = \begin{bmatrix}
+            2 & 0 \\ 0 & 3
+        \end{bmatrix}, \;\; B = \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 2 & 0 \\
+            0 & 0 & -1
+        \end{bmatrix}, \; C = \begin{bmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 2 & 0 & 0 \\
+            0 & 0 & -1 & 0\\
+            0 & 0 & 0 & 0
+        \end{bmatrix}
+    \end{align}
+    \item lower triangular matrix: $A_{ij} = 0$ when $i<j$
+    \item upper triangular matrix: $A_{ij} = 0$ when $i>j$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+   \item Examples: 
+    \begin{align*}
+        \begin{bmatrix}
+            1 & 0 & 1\\
+            0 & 2 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix} \text{(upper triangular)}, \;  \begin{bmatrix}
+            1 & 0 & 0\\
+            -1 & 2 & 0 \\
+            .3 & 1 & 1
+        \end{bmatrix} \text{(lower triangular)}, 
+    \end{align*}
+\end{itemize}
+    
+\end{frame}
+\begin{frame}{Matrix Transpose}
+\begin{itemize}
+    \item Given matrix $A$, its \textbf{transpose} is the matrix $A^T$ where the rows of $A$ become columns, defined as 
+    \begin{align*}
+        (A^T)_{ij} = A_{ji}, \; i=1, \ldots, n, j= 1, \ldots, m
+    \end{align*}
+    \item  For instance, the transpose of $A=\begin{bmatrix}
+            1 & 0 & 1\\
+            0 & 2 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix}$ yields the lower triangular matrix  $A^T = \begin{bmatrix}
+            1 & 0 & 0\\
+            0 & 2 & 0 \\
+            1 & 0 & 1
+        \end{bmatrix}$
+\end{itemize}
+\end{frame}
+\begin{frame}{Transpose Properties}
+\begin{itemize}
+    \item For matrices $A$, $B$, and scalar $\lambda$:
+    \begin{align}
+        (A + B)^T = A^T + B^T, \;\; (\lambda A)^T = \lambda A^T,\;\;  (A^T)^T = A
+    \end{align}
+    
+    \item $(A^T)^T = A$
+    \item Matrix addition, subtraction, and scalar multiplication are well-defined operations.
+ \end{itemize}
+\end{frame}
+\begin{frame}{}
+\begin{itemize}
+    \item Specifically 
+    \begin{align*}
+        (A \pm B) _{ij} &= A_{ij} \pm B_{ij}, \; i = 1, \ldots, m, j = 1, \ldots, n\\
+        (\alpha A)_{ij} &= \alpha A_{ij},  \; i = 1, \ldots, m, j = 1, \ldots, n
+    \end{align*}
+    \item These operations follow standard algebraic properties:
+    \begin{align}
+        A+ B = B + A, \; \alpha(A+ B) = \alpha A + \alpha B, \; (A + B ) ^T = A ^T + B^T
+    \end{align}
+    
+\end{itemize}
+\end{frame}

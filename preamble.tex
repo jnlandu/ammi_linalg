@@ -1,0 +1,60 @@
+
+
+% AIMS official logo colour
+\definecolor{aimscolour}{rgb}{0.54,0.11,0.01}
+\usecolortheme[named=aimscolour]{structure}
+% packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amsfonts}
+% \usepackage{tikz-3dplot} % For 3D drawings
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{gensymb}
+\onehalfspacing
+\usepackage{graphicx}
+\usepackage[section]{placeins}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{subcaption} %many figures in one figure (note subfigure and subfig are deprecated)
+\usepackage{tikz}
+\setbeamertemplate{background}{\tikz[overlay,remember picture]\node[opacity=0.1]at (current page.center){\includegraphics[width=6cm]{images/Aims_logo2.png}};}
+\definecolor{UMRed}{rgb}{0.5, 0.09, 0.09}
+\addtobeamertemplate{block
+begin}{\pgfsetfillopacity{0.5}}{\pgfsetfillopacity{1}}
+\addtobeamertemplate{block alerted begin}{\pgfsetfillopacity{0.5}}{\pgfsetfillopacity{1}}
+\addtobeamertemplate{block example begin}{\pgfsetfillopacity{0.5}}{\pgfsetfillopacity{1}}
+ 
+\addtobeamertemplate{proof begin}{%
+    \setbeamercolor{block title}{fg=black,bg=blue!50!white}%
+    \setbeamercolor{block body}{fg=black, bg=blue!30!white}%
+}{}
+
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{remark}{Remark}
+
+\usepackage[style=phys]{biblatex}
+\addbibresource{bibliography.bib}
+
+\AtBeginSubsection[]
+{
+   \begin{frame}
+        \frametitle{Overview}
+        \tableofcontents[currentsection,currentsubsection]
+   \end{frame}
+}
+
+\counterwithin{equation}{section}
+\usepackage[roman, thin, thinp, thinc]{esdiff}
+\usepackage{bm}
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+\beamertemplatenavigationsymbolsempty
+\SetKwInput{KwInput}{Input}                % Set the Input
+\SetKwInput{KwOutput}{Output}              % set the Output
+
+%%% Coloring the comment as blue
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{UMRed}{#1}}
+\SetCommentSty{mycommfont}
+\setbeamerfont{page number in head/foot}{size=\footnotesize}
+
+

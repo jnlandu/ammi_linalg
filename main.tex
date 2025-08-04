@@ -1,0 +1,98 @@
+% Copyright ©2020  
+% THE AIMS-SENEGAL ACADEMIC TEAM 	
+% version 2.0 (last edition, May 21, 2020)
+
+\documentclass[11pt]{beamer}
+\usetheme{CambridgeUS}
+
+% Package imports
+\input{preamble.tex}
+\usepackage{tikz-3dplot}
+\usepackage{subcaption}  % for subfigure environments
+% \usetikzlibrary{angles, quotes, decorations.pathmorphing}
+
+% Document metadata
+\author[Jeremie N. Mabiala]{Jeremie Nlandu Mabiala \\
+AMMI BootCamp 2025}
+\title{Linear Algebra Fundamentals \\
+\vspace*{.8cm}
+Vectors, Matrices, Factorization, and Tensor Operations.}
+\logo{\includegraphics[width=2.5cm]{images/aimssn-logo.jpg}} 
+\institute{African Masters of Machine Intelligence} 
+
+% Beamer settings
+\setbeamercovered{invisible}
+
+\begin{document}
+\tdplotsetmaincoords{60}{110}
+
+% ===== TITLE AND TOC =====
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Overview}
+    \tableofcontents
+\end{frame}
+
+% ===== MOTIVATION SECTION =====
+\section{Motivation}
+\input{motivation.tex}
+
+% ===== VECTORS SECTION =====
+\section{Vectors}
+\input{vectors_definitions.tex }
+
+% ===== VECTOR OPERATIONS =====
+\subsection{Vectors Operations}
+\input{vectors_operations.tex}
+
+% ===== VECTOR SPACES =====
+\subsection{Vector Spaces}
+\input{vectors_vector_space.tex}
+
+\subsection{Inner Products and Norms}
+\input{vectors_innerp_norms.tex}
+
+% ------------- Matrices Section -------------
+\section{Matrices}
+\subsection{Matrices Definitions}
+\input{matrices_definitions.tex}  
+\subsection{Matrix Operations}
+\input{matrices_operations.tex}
+% ----- Should Add Matrix inverse and Determinant here ----------
+
+
+\section{Linear transformations: Rotations and Projections}
+\subsection{Linear Transformations}
+\input{linear_transformations_definitions.tex}
+
+% ----- Rotations -----
+\subsection{Rotations Transformations}
+\input{linear_transformations_rotations.tex}
+
+% ----- Orthogonal Projections -----
+\subsection{Orthogonal Projections}
+\input{linear_transformations_projections.tex}
+
+\section{Determinants, Matrix inversion, and Trace}
+\subsection{Determinants and Traces}
+\input{determinants_traces_definitions.tex}
+
+
+% --------- Eigen values and Eigenvectors -----
+\section{Eigenvalues and Eigenvectors}
+\subsection{Eigenvalues and Eigenvectors Definitions}
+\input{eigenvalues.tex}
+
+\section{Matrix decompositions}
+\subsection{Cholesky Decomposition}
+\input{decompositons_cholesky.tex}
+
+\subsection{Eigendecomposition/Diagonalization}
+\input{decompositions_eigendecompositions.tex}
+
+
+\section{References}
+\input{references.tex}
+\end{document}

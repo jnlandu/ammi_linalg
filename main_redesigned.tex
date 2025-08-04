@@ -1,0 +1,443 @@
+% Copyright ©2025  
+% THE AIMS-SENEGAL ACADEMIC TEAM 	
+% version 3.0 (redesigned edition, August 2025)
+
+\documentclass[12pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{whale}
+\input{preamble_modern.tex}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{angles, quotes, decorations.pathmorphing, shadows, shapes.geometric, positioning}
+\usepackage{subcaption}  % for subfigure environments
+\usepackage{fontawesome5}  % for modern icons
+
+% Title and Author Information
+\author[AMMI Tutors]{
+    \textbf{AMMI Teaching Team} \\
+    \small African Masters of Machine Intelligence \\
+    \small BootCamp 2025
+}
+
+\title[Linear Algebra Fundamentals]{
+    \textbf{Linear Algebra Fundamentals} \\
+    \large Vectors, Matrices, Decomposition \& Tensors \\
+    \vspace{0.5cm}
+    \small \faGraduationCap \, Essential Mathematics for Machine Learning
+}
+
+\institute[AIMS-Senegal]{
+    \large African Institute for Mathematical Sciences \\
+    \small Senegal
+}
+
+\date{\today}
+
+% Remove default navigation symbols and configure appearance
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{transparent}
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+
+\begin{document}
+\tdplotsetmaincoords{60}{110}
+
+% Custom title slide
+\begin{frame}[plain]
+\begin{tikzpicture}[overlay, remember picture]
+    % Background gradient
+    \fill[blue!5!white] (current page.south west) rectangle (current page.north east);
+    
+    % Decorative geometric shapes
+    \node[circle, fill=blue!20, opacity=0.3, minimum size=3cm] at ([xshift=5cm,yshift=2cm]current page.north west) {};
+    \node[circle, fill=red!20, opacity=0.3, minimum size=2cm] at ([xshift=-3cm,yshift=-3cm]current page.south east) {};
+    
+    % Title content
+    \node[anchor=center] at (current page.center) {
+        \begin{minipage}{0.8\textwidth}
+            \centering
+            {\huge \textbf{Linear Algebra Fundamentals}} \\[0.5cm]
+            {\Large Vectors, Matrices, Decomposition \& Tensors} \\[0.8cm]
+            {\large \faGraduationCap \, Essential Mathematics for Machine Learning} \\[1.5cm]
+            
+            {\large \textbf{AMMI Teaching Team}} \\[0.3cm]
+            {\normalsize African Masters of Machine Intelligence} \\
+            {\normalsize BootCamp 2025} \\[1cm]
+            
+            {\normalsize African Institute for Mathematical Sciences, Senegal} \\[0.5cm]
+            {\small \today}
+        \end{minipage}
+    };
+\end{tikzpicture}
+\end{frame}
+
+% Table of Contents with modern styling
+\begin{frame}[allowframebreaks]
+\frametitle{\faList \, Course Overview}
+\begin{columns}[T]
+    \begin{column}{0.7\textwidth}
+        \tableofcontents
+    \end{column}
+    \begin{column}{0.25\textwidth}
+        \begin{tikzpicture}
+            \node[draw, rounded corners, fill=blue!20, text width=3cm, align=center] {
+                \small \textbf{Learning Goals} \\[0.2cm]
+                \faCheckCircle \, Master vector operations \\[0.1cm]
+                \faCheckCircle \, Understand matrices \\[0.1cm]
+                \faCheckCircle \, Apply to ML
+            };
+        \end{tikzpicture}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\section[Motivation]{\faRocket \, Motivation}
+\subsection{Why Linear Algebra Matters in AI/ML}
+
+\begin{frame}{\faRocket \, Why Linear Algebra is Essential for AI/ML}
+\framesubtitle{The mathematical foundation of modern artificial intelligence}
+
+\begin{columns}[T]
+    \begin{column}{0.6\textwidth}
+        \begin{itemize}[<+->]
+            \item \faDatabase \, \textbf{Data Representation:} \\
+                  \small Vectors and matrices encode all data types
+            \item \faCogs \, \textbf{Algorithm Core:} \\
+                  \small Powers neural networks, transformers, etc.
+            \item \faChartLine \, \textbf{Optimization:} \\
+                  \small Gradient descent relies on matrix calculus
+            \item \faCompress \, \textbf{Dimensionality Reduction:} \\
+                  \small PCA, SVD enable efficient computation
+        \end{itemize}
+    \end{column}
+    \begin{column}{0.35\textwidth}
+        \begin{tikzpicture}[scale=0.8]
+            % Neural network visualization
+            \foreach \y in {1,2,3} {
+                \node[circle, draw, fill=blue!20] (i\y) at (0,\y) {};
+            }
+            \foreach \y in {1,2,3,4} {
+                \node[circle, draw, fill=green!20] (h\y) at (2,\y-0.5) {};
+            }
+            \foreach \y in {1,2} {
+                \node[circle, draw, fill=red!20] (o\y) at (4,\y+0.5) {};
+            }
+            
+            % Connections
+            \foreach \i in {1,2,3} {
+                \foreach \j in {1,2,3,4} {
+                    \draw[->] (i\i) -- (h\j);
+                }
+            }
+            \foreach \i in {1,2,3,4} {
+                \foreach \j in {1,2} {
+                    \draw[->] (h\i) -- (o\j);
+                }
+            }
+            
+            \node[below] at (2,-0.5) {\small Matrix Operations};
+        \end{tikzpicture}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\faLightbulb \, Real-World Applications}
+\framesubtitle{Where linear algebra powers modern technology}
+
+\begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+        \begin{block}{\faRobot \, Deep Learning}
+            \begin{itemize}
+                \item Matrix multiplications in layers
+                \item Backpropagation algorithms
+                \item Tensor operations
+            \end{itemize}
+        \end{block}
+        
+        \begin{block}{\faSearch \, Computer Vision}
+            \begin{itemize}
+                \item Image transformations
+                \item Convolutional operations
+                \item Feature extraction
+            \end{itemize}
+        \end{block}
+    \end{column}
+    
+    \begin{column}{0.45\textwidth}
+        \begin{block}{\faComments \, Natural Language}
+            \begin{itemize}
+                \item Word embeddings
+                \item Attention mechanisms
+                \item Transformer architectures
+            \end{itemize}
+        \end{block}
+        
+        \begin{block}{\faUsers \, Recommendations}
+            \begin{itemize}
+                \item Matrix factorization
+                \item Collaborative filtering
+                \item Graph-based learning
+            \end{itemize}
+        \end{block}
+    \end{column}
+\end{columns}
+
+\vspace{0.5cm}
+\centering
+\textit{"Linear algebra is the language of data science and AI"} - Gilbert Strang
+\end{frame}
+
+\section[Vectors]{\faArrowRight \, Vectors}
+\subsection{Definitions and Fundamental Concepts}
+
+\begin{frame}{\faArrowRight \, Vectors: Definition and Notation}
+\framesubtitle{The building blocks of linear algebra}
+
+\begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+        \begin{definition}[Vector]
+            A \textbf{vector} is an ordered list of numbers.
+        \end{definition}
+        
+        \vspace{0.3cm}
+        \textbf{Representations:}
+        \begin{itemize}
+            \item \textbf{Row form:} 
+            \begin{align}
+                \mathbf{x} = \left[ x_1, x_2, \ldots, x_n \right] \label{eq:row}
+            \end{align}
+            
+            \item \textbf{Column form:} 
+            \begin{align}
+                \mathbf{x} = \begin{bmatrix}
+                    x_1 \\
+                    x_2 \\
+                    \vdots \\
+                    x_n
+                \end{bmatrix} \label{eq:column}
+            \end{align}
+        \end{itemize}
+    \end{column}
+    
+    \begin{column}{0.4\textwidth}
+        \begin{tikzpicture}[scale=0.8]
+            % Vector visualization
+            \draw[->] (0,0) -- (3,0) node[below] {$x_1$};
+            \draw[->] (0,0) -- (0,3) node[left] {$x_2$};
+            \draw[->, thick, blue] (0,0) -- (2.5,2) node[above right] {$\mathbf{x}$};
+            
+            % Components
+            \draw[dashed, gray] (2.5,2) -- (2.5,0) node[below] {$x_1$};
+            \draw[dashed, gray] (2.5,2) -- (0,2) node[left] {$x_2$};
+            
+            \node[below right] at (1.2,1) {\small 2D Vector};
+        \end{tikzpicture}
+        
+        \vspace{0.5cm}
+        \begin{alertblock}{Key Point}
+            \small Vectors represent both \textbf{magnitude} and \textbf{direction}
+        \end{alertblock}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\faInfoCircle \, Vector Properties and Terminology}
+\framesubtitle{Essential definitions and notation}
+
+\begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+        \begin{itemize}[<+->]
+            \item \textbf{Components:} The numbers $x_1, x_2, \ldots, x_n$ are called \emph{elements}, \emph{entries}, or \emph{components}
+            
+            \item \textbf{Dimension:} The number of elements determines the vector's \emph{dimension} or \emph{length}
+            
+            \item \textbf{Notation:} 
+            \begin{itemize}
+                \item Lowercase letters: $\mathbf{a}, \mathbf{x}, \mathbf{p}, \mathbf{r}$
+                \item Sometimes: $\vec{x}$ or $\boldsymbol{x}$
+                \item $i$-th element: $x_i$ or $[\mathbf{x}]_i$
+            \end{itemize}
+        \end{itemize}
+    \end{column}
+    
+    \begin{column}{0.45\textwidth}
+        \begin{example}[Concrete Examples]
+            \begin{align}
+                \mathbf{a} &= \begin{bmatrix} 1 \\ 2 \\ -1 \end{bmatrix} \quad \text{(3-vector)}\\[0.5cm]
+                \mathbf{b} &= \begin{bmatrix} -2 \\ 1.1 \\ 0 \\ 5 \end{bmatrix} \quad \text{(4-vector)}
+            \end{align}
+        \end{example}
+        
+        \vspace{0.3cm}
+        \begin{block}{Equality}
+            $\mathbf{a} = \mathbf{b}$ if and only if $a_i = b_i$ for all $i$
+        \end{block}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\faLayerGroup \, Special Types of Vectors}
+\framesubtitle{Important vector categories in linear algebra}
+
+\begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+        \begin{block}{\faCircle \, Zero Vector}
+            All entries are zero: $\mathbf{0} = \begin{bmatrix} 0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}$
+        \end{block}
+        
+        \begin{block}{\faSquare \, Ones Vector}
+            All entries are one: $\mathbf{1} = \begin{bmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{bmatrix}$
+        \end{block}
+        
+        \begin{block}{\faDotCircle \, Unit Vectors}
+            One entry is 1, others are 0:
+            \begin{align}
+                \mathbf{e}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \quad
+                \mathbf{e}_2 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \quad
+                \mathbf{e}_3 = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+            \end{align}
+        \end{block}
+    \end{column}
+    
+    \begin{column}{0.45\textwidth}
+        \begin{block}{\faEllipsisH \, Sparse Vectors}
+            Many entries are zero
+            \begin{itemize}
+                \item $\text{nnz}(\mathbf{x})$ = number of nonzero entries
+                \item Examples: zero vectors, unit vectors
+            \end{itemize}
+        \end{block}
+        
+        \begin{block}{\faLayerGroup \, Block Vectors}
+            Concatenation of smaller vectors:
+            \begin{align}
+                \mathbf{a} = \begin{bmatrix}
+                    \mathbf{b} \\
+                    \mathbf{c} \\
+                    \mathbf{d}
+                \end{bmatrix}
+            \end{align}
+        \end{block}
+        
+        \begin{tikzpicture}[scale=0.6]
+            % Unit vectors visualization
+            \draw[->] (0,0) -- (2,0) node[below] {$x$};
+            \draw[->] (0,0) -- (0,2) node[left] {$y$};
+            \draw[->, thick, red] (0,0) -- (1.5,0) node[below] {$\mathbf{e}_1$};
+            \draw[->, thick, blue] (0,0) -- (0,1.5) node[left] {$\mathbf{e}_2$};
+            \node[below] at (1,-0.3) {\small Standard basis};
+        \end{tikzpicture}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\faLayerGroup \, Block Vectors and Concatenation}
+\framesubtitle{Building larger vectors from smaller components}
+
+\begin{columns}[T]
+    \begin{column}{0.6\textwidth}
+        \begin{definition}[Stacked Vector]
+            Given vectors $\mathbf{b} \in \mathbb{R}^m$, $\mathbf{c} \in \mathbb{R}^n$, and $\mathbf{d} \in \mathbb{R}^p$:
+            \begin{align}
+                \mathbf{a} = \begin{bmatrix}
+                    \mathbf{b} \\
+                    \mathbf{c} \\
+                    \mathbf{d}
+                \end{bmatrix} \in \mathbb{R}^{m+n+p}
+            \end{align}
+        \end{definition}
+        
+        \vspace{0.3cm}
+        \textbf{Expanded form:}
+        \begin{align}
+            \mathbf{a} = \begin{bmatrix}
+                b_1 \\ b_2 \\ \vdots \\ b_m \\
+                c_1 \\ c_2 \\ \vdots \\ c_n \\
+                d_1 \\ d_2 \\ \vdots \\ d_p
+            \end{bmatrix}
+        \end{align}
+    \end{column}
+    
+    \begin{column}{0.35\textwidth}
+        \begin{example}[Practical Example]
+            \begin{align}
+                \mathbf{b} &= \begin{bmatrix} 1 \\ 2 \end{bmatrix} \\[0.3cm]
+                \mathbf{c} &= \begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix} \\[0.3cm]
+                \mathbf{a} &= \begin{bmatrix} \mathbf{b} \\ \mathbf{c} \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \\ 3 \\ 4 \\ 5 \end{bmatrix}
+            \end{align}
+        \end{example}
+        
+        \begin{alertblock}{Applications}
+            \small
+            \begin{itemize}
+                \item Feature concatenation in ML
+                \item Stacking data samples
+                \item Building composite models
+            \end{itemize}
+        \end{alertblock}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\faEye \, Geometric Interpretation}
+\framesubtitle{Visualizing vectors in 2D and 3D space}
+
+\begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+        \textbf{2D Vector Representations:}
+        
+        \begin{tikzpicture}[scale=0.8]
+            % Point representation
+            \begin{scope}[xshift=0cm]
+                \draw[->] (0,0) -- (3,0) node[below] {$x_1$};
+                \draw[->] (0,0) -- (0,3) node[left] {$x_2$};
+                \draw[dashed,gray] (2.5,2) -- (2.5,0);
+                \draw[dashed,gray] (2.5,2) -- (0,2);
+                \fill[blue] (2.5,2) circle (2pt);
+                \node[above right] at (2.5,2) {$\mathbf{x}$};
+                \node[below] at (1.5,-0.5) {\small Point in plane};
+            \end{scope}
+        \end{tikzpicture}
+        
+        \vspace{0.5cm}
+        
+        \begin{tikzpicture}[scale=0.8]
+            % Vector representation
+            \begin{scope}[xshift=0cm]
+                \draw[->] (0,0) -- (3,0) node[below] {$x_1$};
+                \draw[->] (0,0) -- (0,3) node[left] {$x_2$};
+                \draw[->,blue,thick] (0,0) -- (2.5,2) node[above right] {$\mathbf{x}$};
+                \node[below] at (1.5,-0.5) {\small Displacement vector};
+            \end{scope}
+        \end{tikzpicture}
+    \end{column}
+    
+    \begin{column}{0.5\textwidth}
+        \textbf{Key Geometric Properties:}
+        
+        \begin{block}{Magnitude (Length)}
+            \begin{align}
+                \|\mathbf{x}\| = \sqrt{x_1^2 + x_2^2 + \cdots + x_n^2}
+            \end{align}
+        \end{block}
+        
+        \begin{block}{Direction}
+            The angle a vector makes with coordinate axes
+        \end{block}
+        
+        \begin{example}[Vector $\mathbf{x} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}$]
+            \begin{itemize}
+                \item Magnitude: $\|\mathbf{x}\| = \sqrt{3^2 + 4^2} = 5$
+                \item Direction: $\theta = \arctan(4/3) \approx 53.13°$
+            \end{itemize}
+        \end{example}
+        
+        \begin{alertblock}{ML Connection}
+            \small Vectors represent feature vectors, embeddings, gradients, etc.
+        \end{alertblock}
+    \end{column}
+\end{columns}
+\end{frame}
+
+% End of current presentation content
+% Additional sections (Matrices, Decomposition, Tensors) would follow here
+
+\end{document}

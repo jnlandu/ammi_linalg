@@ -1,0 +1,241 @@
+\begin{frame}{Vector Spaces}
+\begin{itemize}
+    \item A \textbf{vector space} is a set of vectors of the same dimension, equipped with vector addition and scalar multiplication operations, and satisfies specific axioms.
+    \item \textbf{Fundamental axioms } of a vector space $V$ (over the field $\mathbb{R})$ are:
+        \begin{enumerate}
+            \item \textbf{Closure under addition}: $\mathbf{u} + \mathbf{v} \in V$ for all $\mathbf{u}, \mathbf{v} \in V$
+            \item \textbf{Closure under scalar multiplication}: $c\mathbf{v} \in V$ for all $c \in \mathbb{R}$ and $\mathbf{v} \in V$
+            \item \textbf{Associativity}: $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$
+            \item \textbf{Commutativity}: $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$
+            \item \textbf{Zero vector}: There exists $\mathbf{0} \in V$ such that $\mathbf{v} + \mathbf{0} = \mathbf{v}$
+            \item \textbf{Additive inverse}: For each $\mathbf{v} \in V$, there exists $-\mathbf{v} \in V$ such that $\mathbf{v} + (-\mathbf{v}) = \mathbf{0}$
+            \item \textbf{Distributivity}: $c(\mathbf{u} + \mathbf{v}) = c\mathbf{u} + c\mathbf{v}$ and $(c + d)\mathbf{v} = c\mathbf{v} + d\mathbf{v}$
+            \item \textbf{Scalar multiplication identity}: $1 \cdot \mathbf{v} = \mathbf{v}$
+        \end{enumerate}
+\end{itemize}
+\end{frame}
+\begin{frame}
+    \begin{itemize}
+        \item To show that a set of vectors forms a vector space, we need to verify these axioms.
+        \item A vector space can be defined over any field, such as $\mathbb{R}$ or $\mathbb{C}$, or even finite fields, such as $\mathbb{F}_p$.
+        \item  \textbf{Note:} We consider vector spaces over the field of real numbers $\mathbb{R}$, meaning that all the scalars are real numbers.
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \begin{itemize}
+         \item Examples of vector spaces:
+            \begin{itemize}
+                \item $\mathbb{R}^n$: The set of all $n$- vectors with real components forms a vector space.
+                \item The set of all polynomials of degree at most $n$ forms a vector space, i.e. $P_n = \{ p(x) = a_0 + a_1 x + \cdots + a_n x^n \mid a_i \in \mathbb{R} \}$ is a vector space.
+                \item The set of all continuous functions on a closed interval, i.e. $C[a, b]$, forms a vector space.
+            \end{itemize}
+    \item We can easily show the examples above saisfy the axioms of a vector space.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item \textbf{Dimension:} The \textbf{dimension } of a vector space equals the number of components in each vector
+    \item Example: $\mathbb{R}$ represents the real numbers and forms a 1-dimensional vector space
+    \item Example: $\mathbb{R}^2$ consists of all ordered pairs:
+    $$\mathbb{R}^2 = \left\{ x = \begin{bmatrix} x_1\\ x_2 \end{bmatrix} \mid x_1, x_2 \in \mathbb{R} \right\}$$
+        forming a 2-dimensional vector space that can be visualized as the Cartesian plane
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            % Draw axes
+            \draw[->, very thick] (-2,0) -- (3,0) node[right] {$x_1$};
+            \draw[->, very thick] (0,-1.5) -- (0,2.5) node[above] {$x_2$};
+            
+            % Draw grid
+            \draw[gray!90] (-2,-1.5) grid (3,2.5);
+            
+            % Draw some example vectors
+            \draw[->, thick, blue] (0,0) -- (2,1) node[above right] {$\begin{bmatrix} 2 \\ 1 \end{bmatrix}$};
+            \draw[->, thick, red] (0,0) -- (-1,2) node[above left] {$\begin{bmatrix} -1 \\ 2 \end{bmatrix}$};
+            \draw[->, thick, green] (0,0) -- (1.5,-1) node[below right] {$\begin{bmatrix} 1.5 \\ -1 \end{bmatrix}$};
+            
+            % Origin
+            \fill (0,0) circle (2pt) node[below left] {$O$};
+        \end{tikzpicture}
+        \captionof{figure}{Visualization of $\mathbb{R}^2$ as a 2-dimensional vector space}
+    \end{center}
+    \begin{itemize}
+      \item In general, $\mathbb{R}^n$ constitutes an $n$-dimensional vector space
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Subspaces. Spannning set }
+\begin{itemize}
+    \item \textbf{Subspace:} A \textbf{subspace} is a subset of a vector space that is also a vector space itself, with respect to the same  vector addition and scalar multiplication.
+    \item A subspace must satisfy the same axioms as the parent vector space.
+    \item Equivalently, a subspace is closed under vector addition and scalar multiplication, i.e. $\emptyset \neq S\subseteq V$ a subspace of $V$  must satisfy
+    \begin{align*}
+        (i)\;\; \mathbf{x}, \mathbf{y} \in S \implies \mathbf{x} + \mathbf{y} \in S, \quad (ii)\;\; \lambda\in \mathbb{R}, \mathbf{x} \in S \Longrightarrow \lambda \mathbf{x} \in S.
+    \end{align*} 
+\end{itemize}
+\end{frame}
+\begin{frame}
+\begin{itemize}
+    \item  Example: The set of all vectors in $\mathbb{R}^3$ that lie on the $xy$-plane is a subspace of $\mathbb{R}^3$.
+    \item  Example: The set of all vectors in $\mathbb{R}^3$ that lie on the line $x = y = z$ is a subspace of $\mathbb{R}^3$.
+    \item  Example: The set of all polynomials of degree at most $n$ is a subspace of the vector space of all polynomials.
+    \item  Example: The set of all continuous functions on a closed interval $[a, b]$ is a subspace of the vector space of all functions defined on $[a, b]$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item \textbf{Spanning Set:} A set of vectors $\{v_1, v_2, \ldots, v_k\}$ \textbf{spans } a vector space $V$ if every vector in $V$ can be expressed as a linear combination of the vectors in the set.
+        \item Formally, $V = \text{span}\{v_1, v_2, \ldots, v_k\}$ means that any vector $v \in V$ can be written as:
+        \begin{align*}
+            v = \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_k v_k
+        \end{align*}
+        where $\alpha_i$ are scalars.
+        \item The set $\{v_1, v_2, \ldots, v_k\}$ is called a \textbf{spanning set} for $V$.  
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \begin{itemize}
+        \item Example: The set $\{e_1, e_2, e_3\}$ spans $\mathbb{R}^3$, where:
+            \begin{align*}
+                e_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \quad
+                e_2 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \quad
+                e_3 = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+            \end{align*}
+          \item Indeed, any vector in $\mathbb{R}^3$ can be expressed as a linear combination of these vectors:
+            \begin{align*}
+                v = x_1 e_1 + x_2 e_2 + x_3 e_3 = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+            \end{align*} 
+    \end{itemize}
+\end{frame}
+
+% ------------ Line and Plane        ------------
+\begin{frame}{}
+Other examples of spanning sets include \textbf{lines} and \textbf{planes} in vector spaces:
+\begin{itemize}
+    \item \textbf{Line:} Given a vector $u$, the line spanned by $u$ is the set of all scalar multiples of $u$, i.e.,
+    \begin{align*}
+        l_u = \{ v \mid v = \lambda u \text{ for some } \lambda \in \mathbb{R} \} = \text{span}\{ u \}
+    \end{align*}
+    \item \textbf{Plane:} Given two vectors $u$ and $v $, the plane spanned by $u$ and $v$ is the set of all linear combinations of $u$ and $v$, i.e.,
+    \begin{align*}
+        \pi_{uv} = \{ w \mid w = \lambda u + \beta v \text{ for some } \lambda, \beta \in \mathbb{R} \} = \text{span}\{ u, v \}
+    \end{align*}
+    \item Example:
+\begin{align*}
+    \mathbb{R}^2 = \{\lambda e_1 + \beta    e_2 \mid \lambda, \beta\in \mathbb{R} \}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+
+
+% ----------- Independence and Basis -----------
+\begin{frame}{ Dependence, Independence,and Basis}
+\begin{itemize}
+    \item \textbf{Dependence: }A set of vectors $\{a_1, \ldots, a_k\}$ (with $k \geq 1$) is \textbf{linearly dependent} if there exist coefficients $\beta_1, \ldots, \beta_k$, not all zero, such that
+    \begin{align}
+        \beta_1 a_1 + \beta_2 a_2 + \cdots + \beta_k a_k = 0
+    \end{align}
+    \item Equivalently, at least one vector $a_i$ can be expressed as a linear combination of the others.
+    \item We say the vectors $a_1, \ldots, a_k$ are \textbf{linearly dependent}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item A single vector $\{a_1\}$ is linearly dependent if and only if $a_1 = 0$.
+    \item Two vectors $\{a_1, a_2\}$ are linearly dependent if and only if one is a scalar multiple of the other, i,.e., $a_1 = \lambda a_2$ for some scalar $\lambda$.
+    \item For more than two vectors, it is not easy to state their dependence using the definition. The notion \textbf{determinant} will make it "easy ".
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+    \item  Example: Consider the vectors 
+    \begin{align}
+        a_1 = \begin{bmatrix}
+            1\\2\\3
+        \end{bmatrix}, \; a_2 = \begin{bmatrix}
+                2\\4\\ 6 
+            \end{bmatrix},\; a_3 = \begin{bmatrix}
+                -2\\4\\ 6 
+            \end{bmatrix}
+    \end{align}
+    These vectors are linearly dependent because we can find coefficients $\beta_1 = 1$, $\beta_2 = 2$, $\beta_3 = -3$ (not all zero) such that $\beta_1 a_1 + \beta_2 a_2 + \beta_3 a_3 = 0$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+    \item \textbf{Independence:} A set of $k\geq 1$ vectors $\{a_1, \ldots, a_k \}$ is \textbf{linearly independent} if the equation
+    \begin{align}
+        \beta_1 a_1 + \beta_2 a_2 + \cdots + \beta_k a_k = 0 
+    \end{align}
+    has only the trivial solution $\beta_1 = \beta_2 = \cdots = \beta_k = 0$.
+    \item Equivalently, none of the vectors can be written as a linear combination of the others.
+    \item We say the vectors $a_1, \ldots, a_k$ are \textbf{linearly independent}.
+    \item The standard unit vectors $e_1, \ldots, e_n$ form a linearly independent set.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Example: Consider the vectors
+        \begin{align}
+            a_1 = \begin{bmatrix}
+                1\\0\\0
+            \end{bmatrix}, \; a_2 = \begin{bmatrix}
+                0\\1\\0
+            \end{bmatrix},\; a_3 = \begin{bmatrix}
+                0\\0\\1
+            \end{bmatrix}
+        \end{align}
+        These vectors are linearly independent because the only solution to the equation $\beta_1 a_1 + \beta_2 a_2 + \beta_3 a_3 = 0$ is $\beta_1 = \beta_2 = \beta_3 = 0$.    
+\end{itemize}
+\end{frame} 
+\begin{frame}
+    \begin{itemize}
+    \item In general, a set of $n$ vectors in $\mathbb{R}^n$ is linearly independent if and only if the determinant of the matrix formed by these vectors is non-zero.
+    \item We will see later how to make use of the  assertion above.
+    \item The dimension of a vector space is the number of vectors in any basis for that space.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item \textbf{Basis:} A basis for a vector space $V$ is a set of vectors $\{b_1, b_2, \ldots, b_k\}$ such that:
+        \begin{enumerate}
+            \item The vectors are linearly independent.
+            \item The vectors span the vector space $V$, that is  any vector in $V$ can be expressed as a linear combination of the basis vectors.
+        \end{enumerate}
+        \item \textbf{Dimension:} The number of vectors in a basis is the \textbf{dimension} of the vector space.
+        \item Example: In $\mathbb{R}^3$, the set $\{e_1, e_2, e_3\}$ is a basis where:
+            \begin{align}
+                e_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \quad
+                e_2 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \quad      
+                e_3 = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+            \end{align}
+        \item Any vector in $\mathbb{R}^3$ can be uniquely expressed as a linear combination of these basis vectors:
+            \begin{align}
+                \mathbf{v} = x_1 e_1 + x_2 e_2 + x_3 e_3 = \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix}
+            \end{align} 
+    \item The standard basis vectors are linearly independent and span the entire space $\mathbb{R}^3$. 
+    \item Any vector in $\mathbb{R}^3$ can be expressed as a unique linear combination of these basis vectors.
+    \end{itemize}
+\end{frame}
+\begin{frame}
+    \begin{itemize}
+            \item The dimension of $\mathbb{R}^3$ is 3, as there are three basis vectors.
+            \item The concept of basis extends to any vector space, not just $\mathbb{R}^n$.
+            \item For example, the set of all polynomials of degree at most $n$ has a basis consisting of the monomials $\{1, x, x^2, \ldots, x^n\}$.
+            \item The dimension of this polynomial space is $n+1$.
+    \end{itemize}
+\end{frame}
+ 
+
+
+

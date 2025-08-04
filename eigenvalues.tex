@@ -1,0 +1,557 @@
+\section{Eigenvalues and eigenvectors}
+\begin{frame}{Eigenvalues and eigenvectors}
+\begin{itemize}
+    \item In this section, we work exclusively with square matrices.
+    \item A scalar $\lambda\in \mathbb{R}$ is an \textbf{eigenvalue of $A$} if there exists a non-zero vector $x$ such that \begin{align}
+        Ax = \lambda x \label{ba1,1}
+    \end{align}
+    \item For example, $\lambda = 1$ is an eigenvalue of the identity matrix $A = \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix}$. Also, $\lambda = 5$ is an eigenvalue of $A= \begin{bmatrix}
+        4 & 2\\
+        1 & 3
+    \end{bmatrix}$ since $A\begin{bmatrix}
+        2\\1
+    \end{bmatrix}= 5 \begin{bmatrix}
+        2\\1
+    \end{bmatrix}$.
+    
+\end{itemize}
+\end{frame}
+\begin{frame}{Eigenvectors}
+\begin{itemize}
+   \item Any vector $x$ that satisfies $Ax = \lambda x$ for some scalar $\lambda$ is called an \textbf{eigenvector of $A$} associated with eigenvalue $\lambda$.
+    \item We refer to equation \ref{ba1,1} as \textbf{the eigenvalue equation}.
+    \item As an example, $x= \begin{bmatrix}
+        2 \\ 1
+    \end{bmatrix}$ is an eigenvector of $A= \begin{bmatrix}
+        4 & 2\\
+        1 & 3
+    \end{bmatrix}$ corresponding to eigenvalue $\lambda = 5$.
+    \item Finding eigenvalues and eigenvectors for a given matrix $A$ requires systematic computation.
+\end{itemize}
+    
+\end{frame}
+\begin{frame}{Computing eigenvalues}
+   \begin{itemize}
+       \item For any matrix $A$, these statements are equivalent:
+        \begin{enumerate}
+            \item $\lambda$ is an eigenvalue of $A$
+            \item There exists a non-zero vector $x\in \mathbb{R}^n$ such that $Ax = \lambda x$
+            \item $\det(A-\lambda I)=0$
+       \end{enumerate}
+    \item Define $p_A(\lambda) = \det(A-\lambda I)$. This function $p_A$ is a polynomial in $\lambda$.
+    \item \textbf{The eigenvalues of matrix $A$ correspond exactly to the roots of polynomial $p_A$}.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Exercise}
+\begin{itemize}
+\item Determine the eigenvalues of these matrices:
+\begin{align}
+    a)\;\;   A &= \begin{bmatrix}
+        1 & 2 \\
+        2 & 3
+    \end{bmatrix}\;\;  b)\;\;I = \begin{bmatrix}
+         1 & 0 & 0 \\
+         0 & 1 & 0 \\
+         0 & 0 & 1
+     \end{bmatrix}\;\; c)\;\;  C &= \begin{bmatrix}
+    4 & 1 & 0 \\
+    1 & 4 & 0 \\
+    0 & 0 & 2
+\end{bmatrix}\\
+d) \;\; U & = \begin{bmatrix}
+3 & 5 & -1 \\
+0 & 2 & 4 \\
+0 & 0 & 7
+\end{bmatrix}\;\; e)\;\; L = \begin{bmatrix}
+1 & 0 & 0 \\
+4 & -3 & 0 \\
+2 & 5 & 6
+\end{bmatrix}
+\end{align}
+What common property do you notice for matrices d) and e)?
+\end{itemize}
+\end{frame}
+\begin{frame}{}
+\begin{itemize}
+    \item For any matrix $A$:
+\begin{enumerate}
+    \item Show that if $x$ is an eigenvector of $A$ with eigenvalue $\lambda$, then any non-zero scalar multiple $cx$ is also an eigenvector of $A$ with the same eigenvalue $\lambda$.
+    \item Show that if $\lambda$ is an eigenvalue of $A$, then $\lambda^k$ is an eigenvalue of $A^k$ for any positive integer $k$.
+    \item For a $2\times 2$ triangular matrix $A$, show that the eigenvalues are the diagonal elements.
+    \item For any $2\times 2$ matrix $A$, find the characteristic polynomial $p_A$ and verify that:
+    \begin{align}
+        p_A(\lambda) = \lambda^2 - \lambda \text{tr}(A) + \det(A)
+    \end{align}
+   \item Show that if $A$ is symmetric, then all eigenvalues of $A$ are real.
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Finding Eigenvectors}
+\begin{itemize}
+    \item For a matrix \( A \), these statements are equivalent:
+    \begin{enumerate}
+        \item \( x \) is an eigenvector of \( A \) with eigenvalue \( \lambda \)
+        \item \( x \) satisfies the equation \( Ax = \lambda x \)
+        \item \( x \) is a non-zero solution to the homogeneous system \( (A - \lambda I)x = 0 \)
+        \item $x $ lies in the nullspace of $A-\lambda I$, i.e., $x \in \ker (A-\lambda I)$
+        \item The matrix \( A - \lambda I \) is singular (non-invertible), which means \( \det(A - \lambda I) = 0 \)
+    \end{enumerate}
+    \item \textbf{Eigenvectors corresponding to $\lambda$ are non-zero solutions to $(A-\lambda I)x=0$}.
+\end{itemize}
+\end{frame}
+\begin{frame}{Example: Finding Eigenvectors}
+\begin{enumerate}
+    \item Consider $A = \begin{bmatrix} 4 & 2 \\ 1 & 3 \end{bmatrix}$. We will find its eigenvectors.
+    \item First, we compute the eigenvalues using the characteristic equation:
+\begin{align}
+\det(A - \lambda I) & = \begin{vmatrix} 4 - \lambda & 2 \\ 1 & 3 - \lambda \end{vmatrix} = 0\\
+& = (4 - \lambda)(3 - \lambda) - 2 \\
+& = \lambda^2 - 7\lambda + 10 = 0
+\Longrightarrow \lambda_1 = 5,\ \lambda_2 = 2
+\end{align}
+\item Next, we find eigenvectors by solving \( (A - \lambda I)x = 0 \).
+\end{enumerate}
+\end{frame}
+\begin{frame}{}
+    \begin{itemize}
+       \item \textbf{For eigenvalue } \( \lambda = 5 \) :
+\[
+(A - 5I) \begin{bmatrix}
+    x_1\\x_2
+\end{bmatrix} = \begin{bmatrix} -1 & 2 \\ 1 & -2 \end{bmatrix}\begin{bmatrix}
+    x_1\\x_2
+\end{bmatrix}=0 
+\Longrightarrow x = \begin{bmatrix} 2 \\ 1 \end{bmatrix}
+\]
+\vspace{0.5em}
+\item \textbf{For eigenvalue } \( \lambda = 2 \):
+\[
+(A - 2I) \begin{bmatrix}
+    x_1\\x_2
+\end{bmatrix} = \begin{bmatrix} 2 & 2 \\ 1 & 1 \end{bmatrix} \begin{bmatrix}
+    x_1\\x_2
+\end{bmatrix} = 0
+\Longrightarrow x = \begin{bmatrix} -1 \\ 1 \end{bmatrix}
+\]
+ \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Exercise}
+\begin{enumerate}
+    \item Compute the eigenvectors corresponding to the eigenvalues of matrices $(a)-(e)$ from the previous slide.
+    \item If \( x \) and \( y \) are eigenvectors of matrix \( A \) with the same eigenvalue \( \lambda \), prove that any linear combination \( \alpha x + \beta y \) is also an eigenvector for \( \lambda \).
+    \item Can the zero vector serve as an eigenvector? Explain your reasoning.
+    \item Is it possible for a single eigenvector to correspond to two distinct eigenvalues? Provide justification.
+    \item If matrix \( A \) has eigenvalue \( \lambda = 0 \), what can you conclude about the properties of \( A \), particularly its invertibility?
+\end{enumerate}
+\end{frame}
+\begin{frame}{Algebraic Multiplicity}
+    \begin{itemize}
+        \item An eigenvalue $\lambda$ of matrix $A$ corresponds to a root of the characteristic polynomial $p_A(\lambda)$.
+        \item The algebraic multiplicity of eigenvalue $\lambda_i$ refers to how many times $\lambda_i$ appears as a root in $p_A$.
+        \item Example: For a $3\times 3$ matrix $A$ with characteristic polynomial 
+        \begin{align}
+            p_A(\lambda) = (\lambda -1)^2(\lambda-3)
+        \end{align}
+        eigenvalue $\lambda=1$ has algebraic multiplicity $2$, while $\lambda=3$ has multiplicity $1$.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Exercise}
+\begin{itemize}
+    \item Determine the algebraic multiplicity of each eigenvalue for the following matrices:
+    \begin{align}
+a)\;\; A = \begin{bmatrix} 2 & 1 \\ 0 & 2 \end{bmatrix}\;\;\; b)\;\; B = \begin{bmatrix} 1 & 0 \\ 0 & 3 \end{bmatrix}\;\; c)\;\; C = \begin{bmatrix} 4 & 1 & 0 \\ 0 & 4 & 0 \\ 0 & 0 & 4 \end{bmatrix}
+    \end{align}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Geometric Multiplicity}
+\begin{itemize}
+    \item For an eigenvalue $\lambda$ of matrix $A$, the \textbf{geometric multiplicity} equals $\dim(\ker(A-\lambda I))$.
+    \item Equivalently, it represents the \textbf{maximum number of linearly independent eigenvectors associated with $\lambda$}.
+    \item Example: For matrix $\begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}$, eigenvalue $\lambda = 2$ has geometric multiplicity $2$.
+\end{itemize}
+\end{frame}
+\begin{frame}{Eigenspace and Spectrum}
+\begin{itemize}
+    \item Given matrix $A$ and eigenvalue $\lambda$, the \textbf{eigenspace} $E_\lambda$ contains all corresponding eigenvectors:
+    \begin{align}
+        E_\lambda = \{ x \in \mathbb{R}^n \mid (A-\lambda I)x = 0 \} = \ker(A-\lambda I)
+    \end{align}
+    \item The eigenspace $E_\lambda$ forms a subspace spanned by eigenvectors of $\lambda$.
+    \item From our earlier example with $\lambda=5$, the eigenspace is:
+    \begin{align}
+        E_5 = \text{span}\left\{ \begin{bmatrix} 2\\1 \end{bmatrix}\right\} = \left\{ \begin{bmatrix} 2\alpha\\ \alpha \end{bmatrix} \mid \alpha \in \mathbb{R} \right\}
+    \end{align}
+\end{itemize}
+\end{frame}
+\begin{frame}{}
+\begin{itemize}
+    \item Note: \textbf{geometric multiplicity = dimension of eigenspace}.
+    \item The \textbf{spectrum} (or \textbf{eigenspectrum}) of $A$, denoted $\sigma(A)$, is the \textbf{complete set of eigenvalues}:
+    \begin{align}
+        \sigma(A) = \{ \lambda \in \mathbb{R} \mid \det(A-\lambda I) = 0 \}
+    \end{align}
+    \item Example: For $A = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}$ with eigenvalues $\lambda = 1$ and $\lambda = 3$, we have $\sigma(A) = \{1, 3\}$.
+\end{itemize}
+\end{frame}
+\begin{frame}{Computing Eigenvalues, Eigenvectors, and Eigenspaces}
+\begin{itemize}
+\item Consider the $2\times 2$ matrix:
+\begin{align}
+    A = \begin{bmatrix} 4 & 2\\ 1 & 3 \end{bmatrix}
+\end{align}
+\item \textbf{Characteristic polynomial}:
+\begin{align}
+    p_A(\lambda) = \det(A-\lambda I) = \begin{vmatrix} 4-\lambda & 2\\ 1 & 3-\lambda \end{vmatrix} &= (4-\lambda)(3-\lambda) - 2 \\
+    &= \lambda^2 - 7\lambda + 10 \\
+    &= (\lambda-2)(\lambda-5)
+\end{align}
+\item \textbf{Eigenvalues}: The roots are $\lambda_1 = 2$ and $\lambda_2 = 5$, each with algebraic multiplicity $1$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{}
+\begin{itemize}
+    \item \textbf{Eigenvectors and Eigenspaces}: For eigenvalue $\lambda = 5$, we find eigenvectors by solving:
+    \begin{align}
+        (A - \lambda I)x = 0 \quad \Longrightarrow \quad \begin{bmatrix}
+            4-5 & 2 \\
+            1 & 3-5
+        \end{bmatrix}x = 0
+    \end{align}
+    \item This gives us the system:
+    \begin{align}
+        \begin{bmatrix}
+            -1 & 2 \\
+            1 & -2
+        \end{bmatrix}\begin{bmatrix}
+            x_1\\
+            x_2
+        \end{bmatrix} = 0
+    \end{align}
+    \item From the first row: $-x_1 + 2x_2 = 0 \Rightarrow x_1 = 2x_2$
+    \item Setting $x_2 = t$, the eigenspace is:
+    \begin{align}
+        E_5 = \text{span}\left\{\begin{bmatrix} 2 \\ 1 \end{bmatrix}\right\} = \left\{t\begin{bmatrix} 2 \\ 1 \end{bmatrix} \mid t \in \mathbb{R}, t \neq 0\right\}
+    \end{align}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{}
+\begin{itemize}
+    \item The eigenvector and eigenspace associated to $\lambda=5$ are 
+    \begin{align*}
+         v_1 = \begin{bmatrix} 2\\
+         1
+    \end{bmatrix} \; , E_5 = \text{span}\{ v_1 \}:= \{ c v_1 \mid c\in \mathbb{R} \}
+    \end{align*}
+    \item For $\lambda  =  2$, we find analogously the equations
+    \begin{align*}
+        \begin{bmatrix}
+            4-2 & 2 \\
+            1 & 3-2 
+        \end{bmatrix}\begin{bmatrix}
+            x_1\\
+            x_2
+        \end{bmatrix} = 0 \Longleftrightarrow  \begin{bmatrix}
+            2  & 2 \\
+            1 & 1 
+        \end{bmatrix}\begin{bmatrix}
+            x_1\\
+            x_2
+        \end{bmatrix} = 0
+    \end{align*}
+    which gives $x_2=-x_1$, such as    $v_2 = \begin{bmatrix}
+        1 & -1
+    \end{bmatrix}^T$, is an eigenvector. The corresponding eigenspace is  $   E_2 = \text{span} \{ v_2\}$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Back to Matrix Norms: Spectral Norm}
+\begin{itemize}
+    \item For any matrix $A$ (not necessarily square), the \textbf{spectral norm} $\|A\|_2$ is defined as the square root of the largest eigenvalue of $A^TA$:
+        \begin{align}
+            \|A\|_2 = \sqrt{\lambda_{\max}(A^T A)}
+        \end{align}
+    where $\lambda_{\max}$ denotes the maximum eigenvalue.
+    \item Example: Let $A = \begin{bmatrix} 1 & 2 \\ 0 & 2 \end{bmatrix}$. First, compute $A^TA$:
+        \begin{align}
+            A^T A = 
+        \begin{bmatrix} 
+        1 & 0 \\ 
+        2 & 2 
+        \end{bmatrix}
+        \begin{bmatrix} 
+        1 & 2 \\ 
+        0 & 2 
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        1 & 2 \\
+        2 & 8
+        \end{bmatrix}
+        \end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+    \item To find the eigenvalues of $A^TA$, we solve the characteristic equation:
+    \begin{align}
+        \det(A^T A - \lambda I) = 
+    \begin{vmatrix}
+    1 - \lambda & 2 \\
+    2 & 8 - \lambda
+    \end{vmatrix}
+    = (1 - \lambda)(8 - \lambda) - 4 = 0
+    \end{align}
+\item Solving yields eigenvalues $\lambda_1 \approx 8.531$ and $\lambda_2 \approx 0.469$.
+\item Therefore, the spectral norm is:
+\begin{align}
+    \|A\|_2 = \sqrt{\lambda_{\max}} = \sqrt{8.531} \approx 2.921
+\end{align}
+\item Compare this with other norms: What are the Frobenius norm, 1-norm, and $\infty$-norm of $A$? What patterns do you observe?
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Spectral theorem}
+\begin{itemize}
+    \item Racall that a symmetric matrix $A$ is such that $A^T=A$.
+    \item For example,the following matrices are symmetric
+    \begin{align}
+     A = \begin{bmatrix}
+         1 & 2 \\
+         2 & 1
+     \end{bmatrix}=A^T \;\text{ and }\; D = \begin{bmatrix}
+         -2 & 0 & 1  \\
+         0 & 3  & 2\\
+         1 & 2 & 0
+     \end{bmatrix}=D^T
+ \end{align}
+ \item What are the eigenvalues of $A$ and $D$ and the eigenvectors for each? What do you observe?
+ \item  Let's consider $A$. A quick computation yields
+ \begin{align}
+     \lambda_1 = 1,\quad \lambda_2 = 3, \;v_1 = \begin{bmatrix} 1 \\ -1 \end{bmatrix}, \; \text{ and }\;\;v_2 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+ \end{align}
+\end{itemize}    
+\end{frame}
+
+
+\begin{frame}{}
+\begin{itemize}
+    \item Property 1: All eigenvalues of $A$ are real numbers.
+    \item Property 2: The eigenvectors of $A$ are orthogonal to each other, as shown by:
+    \begin{align}
+        v_1^Tv_2 = \begin{bmatrix} 1 &  -1 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = 1 \cdot 1 + (-1) \cdot 1 = 0
+    \end{align}
+    \item By normalizing $v_1$ and $v_2$ to unit vectors $x_1 = \frac{v_1}{\|v_1\|}$ and $x_2 = \frac{v_2}{\|v_2\|}$, we obtain the orthogonal matrix $Q$ satisfying $Q^TQ = I$:
+    \begin{align}
+        Q = \begin{bmatrix}
+            x_1 & x_2
+        \end{bmatrix} = \frac{1}{\sqrt{2}} \begin{bmatrix}
+            1 & 1 \\
+            -1 & 1
+        \end{bmatrix}
+    \end{align}
+    \item Property 3: Matrix $A$ can be decomposed as:
+    \begin{align}
+        A = Q \Lambda Q^T = \frac{1}{\sqrt{2}} \begin{bmatrix}
+            1 & 1 \\
+            -1 & 1
+        \end{bmatrix} \begin{bmatrix}
+            1 & 0 \\
+            0 & 3
+        \end{bmatrix} \frac{1}{\sqrt{2}} \begin{bmatrix}
+            1 & -1 \\
+            1 & 1
+        \end{bmatrix}
+    \end{align}
+    where $\Lambda$ is the diagonal matrix of eigenvalues.
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Spectral Theorem for Symmetric Matrices}
+\begin{itemize}
+    \item  \textbf{Spectral Theorem}: If \( A \) is a symmetric matrix (i.e., \( A = A^\top \)), then:
+     \begin{enumerate}
+          \item Every eigenvalue of \( A \) is real
+          \item \( \mathbb{R}^n \) has an orthonormal basis formed entirely by eigenvectors of \( A \)
+     \end{enumerate}
+     \item  From property 2, we can construct an orthogonal matrix $Q$ such that 
+          \begin{align}
+                A = Q D Q^T
+          \end{align}
+          where $D$ contains the eigenvalues of $A$ on its diagonal, and the columns of $Q$ are the corresponding normalized eigenvectors.
+\end{itemize}
+\end{frame}
+\begin{frame}{}
+\begin{itemize}
+     \item \textbf{Eigenvalues are real}. For any complex eigenpair $(\lambda, x)$:
+     \[
+     Ax = \lambda x \Rightarrow x^T A x = \lambda x^T x \Rightarrow \lambda = \overline{\lambda} \Rightarrow \lambda \in \mathbb{R}
+     \]
+     \item \textbf{Orthonormal eigenvector basis exists}:
+     \begin{enumerate}
+          \item  Choose an eigenvalue \( \lambda \) of \( A \) with corresponding unit eigenvector \( v \in \mathbb{R}^n \). Let \( V_1 = \text{Span}(v) \) and consider its orthogonal complement \( V_1^\perp \)
+
+          \item \textbf{Key insight:} \( V_1^\perp \) is \( A \)-invariant, meaning \( A(V_1^\perp) \subseteq V_1^\perp \)
+          \item \textbf{Induction:} Apply the theorem to the restriction of \( A \) on \( V_1^\perp \) (dimension \( n-1 \)), which remains symmetric
+          \end{enumerate}
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}{Proof, continued}
+\begin{enumerate}
+    \item[5] \textbf{Step 5:} By the induction hypothesis, there exists an orthonormal basis of eigenvectors for the subspace \( V_1^\perp \)
+    \item [6] \textbf{Conclusion:} By combining the unit eigenvector \( v \) with the orthonormal eigenvectors from \( V_1^\perp \), we construct a complete orthonormal basis of \( \mathbb{R}^n \) consisting entirely of eigenvectors of \( A \)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Example}
+\begin{itemize}
+    \item Consider the $2\times 2$ symmetric matrix: 
+    \begin{align*}
+        A = \begin{bmatrix}
+3 & 1 \\
+1 & 3
+\end{bmatrix}
+    \end{align*}
+    This matrix admits the following spectral decomposition:
+    \begin{align*}
+        A = Q DQ^T \Longleftrightarrow  \begin{bmatrix}
+3 & 1 \\
+1 & 3
+\end{bmatrix} = \begin{bmatrix}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}
+\end{bmatrix} \begin{bmatrix}
+4 & 0 \\
+0 & 2
+\end{bmatrix} \begin{bmatrix}
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}}
+\end{bmatrix}^T
+    \end{align*}
+\item Here, $\lambda_1 = 4$ and $\lambda_2 = 2$ are the eigenvalues of $A$, while the columns of $Q$ contain the corresponding normalized eigenvectors.
+\item What is the determinant of $A$?
+\end{itemize}
+\end{frame}
+\begin{frame}{Relationship Between Determinants, Traces, and Eigenvalues}
+\begin{itemize}
+    \item \textbf{Determinant formula:} For any matrix $A$, its determinant equals the product of all eigenvalues:
+    \begin{align}
+        \det(A) = \prod_{i=1}^n \lambda_i
+    \end{align}
+    where $\lambda_i$ denote the eigenvalues of $A$.
+    \item \textbf{Invertibility criterion:} Matrix $A$ is invertible if and only if all eigenvalues are non-zero.
+    
+    \item \textbf{Trace formula:} The trace of matrix $A$ equals the sum of all eigenvalues:
+    \begin{align}
+        \text{tr}(A) = \sum_{i=1}^n \lambda_i
+    \end{align}
+    where $\lambda_i$ are the eigenvalues of $A$.
+\end{itemize} 
+\end{frame}
+
+
+
+\begin{frame}{Eigenvalue Localization: Gershgorin Circle Theorem}
+\begin{itemize}
+    \item \textbf{Theorem:} For any matrix $A$, all eigenvalues lie within the union of Gershgorin discs:
+    \begin{align}
+        \sigma(A) \subseteq \bigcup_{i=1}^n \left\{ \lambda \in \mathbb{C} \mid \; |\lambda - a_{ii}| \leq \sum_{j=1, \; j\neq i}^n |a_{ij}| \right\}
+    \end{align}
+    \item Each disc $D_i$ is centered at diagonal element $a_{ii}$ with radius equal to the sum of absolute values of off-diagonal elements in row $i$.
+    \item This theorem provides bounds for eigenvalue locations without computing them explicitly.
+\end{itemize} 
+\end{frame}
+
+\begin{frame}{Example: Applying Gershgorin's Theorem}
+\begin{itemize}
+    \item Consider the matrix:
+    \begin{align*}
+         A = \begin{bmatrix}
+        5 & 1 & 0 \\
+        2 & 4 & 1 \\
+        1 & 2 & 6
+        \end{bmatrix}
+    \end{align*}
+    \item We construct three Gershgorin discs, one for each row.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+    \begin{itemize}
+       \item \textbf{Disc 1 (Row 1):}
+       \[
+    \text{Center: } a_{11} = 5, \quad \text{Radius: } R_1 = |a_{12}| + |a_{13}| = |1| + |0| = 1
+    \]
+    \[
+    D_1 = \{ \lambda \in \mathbb{C} : |\lambda - 5| \leq 1 \}
+    \]
+
+    \item \textbf{Disc 2 (Row 2):}
+    \[
+    \text{Center: } a_{22} = 4, \quad \text{Radius: } R_2 = |a_{21}| + |a_{23}| = |2| + |1| = 3
+    \]
+    \[
+    D_2 = \{ \lambda \in \mathbb{C} : |\lambda - 4| \leq 3 \}
+    \]
+    
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+  \item \textbf{Disc 3 (Row 3):}
+    \[
+    \text{Center: } a_{33} = 6, \quad \text{Radius: } R_3 = |a_{31}| + |a_{32}| = |1| + |2| = 3
+    \]
+    \[
+    D_3 = \{ \lambda \in \mathbb{C} : |\lambda - 6| \leq 3 \}
+    \]
+    \item \textbf{Conclusion:} All eigenvalues of $A$ must lie within $D_1 \cup D_2 \cup D_3$.
+    \item For real eigenvalues, this corresponds to the interval $[1, 9]$.
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}{Exercise}
+\begin{enumerate}
+    \item Prove or explain why the geometric multiplicity of an eigenvalue is always less than or equal to its algebraic multiplicity.
+    \item Give an example of a matrix where the algebraic multiplicity is greater than the geometric multiplicity.
+    \item Can a matrix have an eigenvalue with algebraic multiplicity 2 and geometric multiplicity 1? What does this imply about the matrix?
+    \item Is it possible for a matrix to have an eigenvalue whose geometric multiplicity is greater than its algebraic multiplicity? Why or why not?
+    \item Let \( A \in \mathbb{R}^{n \times n} \). If an eigenvalue \( \lambda \) has algebraic multiplicity \( n \), what does this imply about the characteristic polynomial?
+    \item If \( A \) is diagonalizable, how are the algebraic and geometric multiplicities of its eigenvalues related?
+    \item Let \( A = \begin{bmatrix} 2 & 1 \\ 0 & 2 \end{bmatrix} \). Find the algebraic and geometric multiplicities of its eigenvalue(s), and determine whether the matrix is diagonalizable.
+\end{enumerate}
+\end{frame}
+
+
+
+

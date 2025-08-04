@@ -1,0 +1,94 @@
+% AIMS official colors - modernized palette
+\definecolor{aimscolour}{rgb}{0.54,0.11,0.01}
+\definecolor{modernblue}{rgb}{0.2,0.4,0.8}
+\definecolor{softgray}{rgb}{0.95,0.95,0.95}
+\definecolor{accentorange}{rgb}{1.0,0.6,0.2}
+
+% Use modern blue as primary color
+\usecolortheme[named=modernblue]{structure}
+
+% Enhanced packages for modern design
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage[section]{placeins}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{fontawesome5}  % Modern icons
+\usepackage{xcolor}
+
+% Modern spacing
+\onehalfspacing
+
+% Subtle background without logo overlay
+\setbeamertemplate{background}{}
+
+% Modern block styling with transparency
+\definecolor{UMRed}{rgb}{0.5, 0.09, 0.09}
+\addtobeamertemplate{block begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
+\addtobeamertemplate{block alerted begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
+\addtobeamertemplate{block example begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
+
+% Enhanced proof environment
+\addtobeamertemplate{proof begin}{%
+    \setbeamercolor{block title}{fg=white,bg=modernblue}%
+    \setbeamercolor{block body}{fg=black, bg=blue!10!white}%
+}{}
+
+% Custom theorem environments
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{remark}{Remark}
+
+% Bibliography styling
+\usepackage[style=phys]{biblatex}
+\addbibresource{bibliography.bib}
+
+% Modern section transitions
+\AtBeginSubsection[]
+{
+   \begin{frame}
+        \frametitle{\faList \, Section Overview}
+        \tableofcontents[currentsection,currentsubsection]
+   \end{frame}
+}
+
+% Equation numbering
+\counterwithin{equation}{section}
+
+% Advanced differential notation
+\usepackage[roman, thin, thinp, thinc]{esdiff}
+\usepackage{bm}
+
+% Modern footer with page numbers
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+\beamertemplatenavigationsymbolsempty
+\setbeamerfont{page number in head/foot}{size=\footnotesize}
+
+% Algorithm styling
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+% Enhanced comment styling
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{modernblue}{#1}}
+\SetCommentSty{mycommfont}
+
+% Modern frame title formatting
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\normalsize,series=\normalfont}
+
+% Enhanced itemize symbols
+\setbeamertemplate{itemize item}{\faChevronRight}
+\setbeamertemplate{itemize subitem}{\faAngleRight}
+\setbeamertemplate{itemize subsubitem}{\faCircle}
+
+% Modern alert and example block colors
+\setbeamercolor{block title alerted}{fg=white,bg=red!70!black}
+\setbeamercolor{block body alerted}{fg=black,bg=red!10!white}
+\setbeamercolor{block title example}{fg=white,bg=green!70!black}
+\setbeamercolor{block body example}{fg=black,bg=green!10!white}

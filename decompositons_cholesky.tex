@@ -1,0 +1,84 @@
+\begin{frame}{Cholesky decomposition}
+\begin{itemize}
+    \item \textbf{Any symmetric, positive definite matrix} A can be uniquely factorized as $A = LL^T$, where $L$ is a \textbf{lower triangular matrix with positive diagonal elements:}
+    \begin{align}
+        \begin{bmatrix}
+        a_{11} & \cdots & a_{1n} \\
+        \vdots & \ddots & \vdots \\
+        a_{n1} & \cdots & a_{nn}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        l_{11} & \cdots & 0 \\
+        \vdots & \ddots & \vdots \\
+        l_{n1} & \cdots & l_{nn}
+        \end{bmatrix}
+        \begin{bmatrix}
+        l_{11} & \cdots & l_{n1} \\
+        0 & \ddots & \vdots \\
+        0 & \cdots & l_{nn}
+        \end{bmatrix}
+       \end{align}
+    \item The lower triangular matrix $L$ is called the Cholesky factor of $A$.
+\end{itemize}    
+\end{frame}
+
+
+
+
+\begin{frame}{Cholesky Decomposition: Example}
+\begin{itemize}
+    \item \textbf{Example:} Consider the symmetric, positive-definite matrix $A$:
+    \[
+    A = \begin{bmatrix}
+    4 & 2 \\
+    2 & 5
+    \end{bmatrix}
+    \]
+    
+    \item Let $L = \begin{bmatrix} l_{11} & 0 \\ l_{21} & l_{22} \end{bmatrix}$. Then:
+    \[
+    L L^T = \begin{bmatrix}
+    l_{11} & 0 \\
+    l_{21} & l_{22}
+    \end{bmatrix} \begin{bmatrix}
+    l_{11} & l_{21} \\
+    0 & l_{22}
+    \end{bmatrix} = \begin{bmatrix}
+    l_{11}^2 & l_{11} l_{21} \\
+    l_{21} l_{11} & l_{21}^2 + l_{22}^2
+    \end{bmatrix} = \begin{bmatrix}
+    4 & 2 \\
+    2 & 5
+    \end{bmatrix}
+    \]
+    
+    \item \textbf{Solving for $L$:}
+\end{itemize} 
+\end{frame}
+
+\begin{frame}{}
+\begin{enumerate}
+    \item From \( a_{11} = l_{11}^2 \):
+    \[
+    l_{11}^2 = 4 \implies l_{11} = 2 \quad (\text{since } l_{11} > 0)
+    \]
+
+    \item From \( a_{12} = l_{11} l_{21} \):
+    \[
+    2 l_{21} = 2 \implies l_{21} = 1
+    \]
+
+    \item From \( a_{22} = l_{21}^2 + l_{22}^2 \):
+    \[
+    l_{21}^2 + l_{22}^2 = 5 \implies 1^2 + l_{22}^2 = 5 \implies l_{22}^2 = 4 \implies l_{22} = 2 \quad (\text{since } l_{22} > 0)
+    \]
+\end{enumerate}
+Thus:
+\[
+L = \begin{bmatrix}
+2 & 0 \\
+1 & 2
+\end{bmatrix}
+\]
+\end{frame}
