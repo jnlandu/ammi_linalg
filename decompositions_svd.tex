@@ -1,0 +1,84 @@
+
+\begin{frame}{SVD Theorem}
+\begin{itemize}
+    \item Let \( A \in \mathbb{R}^{m \times n} \) be a matrix of rank \( r \leq \min(m, n) \). The Singular Value Decomposition (SVD) of \( A \) expresses it as:
+
+\[
+A = U \Sigma V^T
+\]
+
+where:
+\begin{itemize}
+    \item \( U \in \mathbb{R}^{m \times m} \) is an orthogonal matrix with columns \( u_i \) (left singular vectors)
+    \item \( V \in \mathbb{R}^{n \times n} \) is an orthogonal matrix with columns \( v_j \) (right singular vectors)
+    \item \( \Sigma \in \mathbb{R}^{m \times n} \) has diagonal entries \( \sigma_i \geq 0 \) and zeros elsewhere
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Properties of SVD}
+\begin{itemize}
+    \item The diagonal entries $\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r > 0$ are called \textbf{singular values} of $A$.
+    \item The columns $u_i$ are \textbf{left singular vectors}, and columns $v_j$ are \textbf{right singular vectors}.
+    \item The singular values are conventionally ordered in decreasing order.
+    \item The matrix $\Sigma$ is uniquely determined. For $m > n$:
+    \begin{align}
+        \Sigma = \begin{bmatrix}
+            \sigma_1 & 0 & \cdots & 0 \\
+            0 & \sigma_2 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & \sigma_n \\
+            0 & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 0
+        \end{bmatrix}
+    \end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+    \item For $m < n$, $\Sigma$ has the structure:
+    \begin{align}
+        \Sigma = \begin{bmatrix}
+            \sigma_1 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
+            0 & \sigma_2 & \cdots & 0 & 0 & \cdots & 0\\
+            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & \sigma_m & 0 & \cdots & 0
+        \end{bmatrix}
+    \end{align}
+    \item \textbf{Key fact:} The SVD exists for \emph{any} matrix $A \in \mathbb{R}^{m \times n}$, regardless of rank or shape.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Computing the SVD}
+\begin{itemize}
+    \item The SVD can be constructed using the eigendecomposition of $A^TA$:
+    \begin{align}
+        A^TA = Q\Lambda Q^T = Q \begin{bmatrix}
+            \lambda_1 & \cdots & 0\\
+            \vdots & \ddots & \vdots\\
+            0 & \cdots & \lambda_n
+        \end{bmatrix} Q^T
+    \end{align}
+    where $Q$ contains orthonormal eigenvectors and $\lambda_i \geq 0$ are eigenvalues of $A^TA$.
+    \item Starting from the SVD form $A = U\Sigma V^T$, we compute:
+    \begin{align}
+        A^TA = (U\Sigma V^T)^T (U\Sigma V^T) = V\Sigma^T U^T U \Sigma V^T
+    \end{align}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+    \item Since $U$ is orthogonal ($U^TU = I$), we get:
+    \begin{align}
+        A^TA = V\Sigma^T \Sigma V^T = V \begin{bmatrix}
+            \sigma_1^2 & & \\
+            & \ddots & \\
+            & & \sigma_n^2
+        \end{bmatrix} V^T
+    \end{align}
+    \item This shows that the singular values are $\sigma_i = \sqrt{\lambda_i}$, where $\lambda_i$ are eigenvalues of $A^TA$.
+\end{itemize}
+\end{frame}

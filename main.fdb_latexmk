@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1754337982.63434 0
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1754339400.10727 0
   "bibliography.bib" 0 -1 0 ""
   "main.bcf" 0 -1 0 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1754337975.51419 "/Users/jeremie/dev/projects/ml/2025/livres/ammi-linalg/main.tex" "main.pdf" "main" 1754337982.6346 0
-  "/Users/jeremie/dev/projects/ml/2025/livres/ammi-linalg/main.tex" 1754258200.96389 2513 bee57d4d5a55b67e1b16947b031a009f ""
+["pdflatex"] 1754339392.32768 "/Users/jeremie/dev/projects/ml/2025/livres/ammi-linalg/main.tex" "main.pdf" "main" 1754339400.10754 0
+  "/Users/jeremie/dev/projects/ml/2025/livres/ammi-linalg/main.tex" 1754339392.12907 3159 5232e0dfdd88a11c9f28e57b240a92cb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm" 1136768653 1536 f0fa079cdc83a6ffeda21e42352cf1ea ""
@@ -303,7 +303,8 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1744627183 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1744627136 3345737 ea023ef05d8ce06ed48f2571006659c9 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "decompositions_eigendecompositions.tex" 1754257120.6448 8174 92fda6f626ea6d3786576a40d7893da2 ""
+  "decompositions_eigendecompositions.tex" 1754339290.45698 4987 e61b64acb137fe5865f1cc0fd42ed5c3 ""
+  "decompositions_svd.tex" 1754339284.07238 3146 c9ec7e434a82e4ead66ffe3baec821e5 ""
   "decompositons_cholesky.tex" 1754256488.32827 2099 996782e9223c644ff5feefb4df890d39 ""
   "determinants_traces_definitions.tex" 1754251157.49645 4114 0185a4a70058b494c5372a27814830fe ""
   "eigenvalues.tex" 1754253545.33037 21440 27560e1194cb2d28a49e442e78c4c3e5 ""
@@ -312,20 +313,20 @@
   "linear_transformations_definitions.tex" 1754245437.43534 10520 44038d95a82c692f88755e84c3349b17 ""
   "linear_transformations_projections.tex" 1754250947.94477 9782 71d2209fe2cc652a92ef1b9a2a64d9de ""
   "linear_transformations_rotations.tex" 1754248686.40531 8747 721cbfb2ae97a0cd9b274de98ba93d98 ""
-  "main.aux" 1754337982.25378 50505 0181ced3fabe84581c4b5732dfc2e9e4 "pdflatex"
+  "main.aux" 1754339399.58655 50553 47053d066ced47f544b95d2f878680d2 "pdflatex"
   "main.bbl" 0 -1 0 "biber main"
-  "main.nav" 1754337982.259 27939 56e002dbe2addb3639a03171dd256ec3 "pdflatex"
-  "main.out" 1754337982.25754 3995 fc20a623dd610c028992fa88e2579329 "pdflatex"
-  "main.run.xml" 1754337982.25896 2432 65b63b98b962785adb1c9b36e2857260 "pdflatex"
-  "main.tex" 1754258200.96389 2513 bee57d4d5a55b67e1b16947b031a009f ""
-  "main.toc" 1754337982.25904 1823 1bd8b5cf06c7b0eae0dc31e85b17b5ee "pdflatex"
+  "main.nav" 1754339399.59219 27981 4c71444b1f4cbe3d893f6f549db8dc58 "pdflatex"
+  "main.out" 1754339399.59058 4034 01e7eca6c246c4065dbb1ab32af40601 "pdflatex"
+  "main.run.xml" 1754339399.59214 2432 65b63b98b962785adb1c9b36e2857260 "pdflatex"
+  "main.tex" 1754339392.12907 3159 5232e0dfdd88a11c9f28e57b240a92cb ""
+  "main.toc" 1754339399.59222 1829 8fc295f1bcb6d99f27dcd222eb844ce6 "pdflatex"
   "matrices_definitions.tex" 1754222603.55096 6404 509cf097ec96a0179a15204f04fad268 ""
   "matrices_operations.tex" 1754222626.35246 8111 271c081c765229cea659c189c4a4d70b ""
   "motivation.tex" 1754252309.20157 887 37d8baaabf0e4d0e09d8f4e45239ba77 ""
   "preamble.tex" 1754133718.01162 1993 cafbe2e73fc1eb7ce897b1e00a218b4d ""
   "references.tex" 1754222740.47275 939 cf22ad6b21dff2bb59fa38508f27588e ""
   "vectors_definitions.tex" 1754137211.46364 6303 bca76c06b54e172dc5f44eaa9792f30d ""
-  "vectors_innerp_norms.tex" 1754337975.3033 30713 649145d03ddde07879122e73a4563df3 ""
+  "vectors_innerp_norms.tex" 1754338385.79967 30713 649145d03ddde07879122e73a4563df3 ""
   "vectors_operations.tex" 1754177790.08696 5936 b079ef1bb589d460e5d64adcb5261daf ""
   "vectors_vector_space.tex" 1754249135.86613 12778 82849103b11c0c83fa5b94a015da7b40 ""
   (generated)

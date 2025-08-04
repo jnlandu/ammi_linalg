@@ -31,9 +31,28 @@ Vectors, Matrices, Factorization, and Tensor Operations.}
     \titlepage
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Overview}
-    \tableofcontents
+\begin{frame}[allowframebreaks,t]{Overview}
+    \tableofcontents[pausesections]
 \end{frame}
+
+% Alternative: If some sections still don't show, use this version
+% \begin{frame}[allowframebreaks,t,shrink=5]{Complete Overview}
+%     \footnotesize
+%     \tableofcontents
+% \end{frame}
+
+% Alternative detailed overview - uncomment if needed
+% \begin{frame}[allowframebreaks,t]{Detailed Overview}
+%     \tableofcontents
+% \end{frame}
+
+% Section overview template - use at beginning of each section if desired
+% \AtBeginSection[]
+% {
+%   \begin{frame}<beamer>{Outline}
+%     \tableofcontents[currentsection,hideothersubsections]
+%   \end{frame}
+% }
 
 % ===== MOTIVATION SECTION =====
 \section{Motivation}
@@ -91,6 +110,8 @@ Vectors, Matrices, Factorization, and Tensor Operations.}
 
 \subsection{Eigendecomposition/Diagonalization}
 \input{decompositions_eigendecompositions.tex}
+\subsection{Singular Value Decomposition (SVD)}
+\input{decompositions_svd.tex}
 
 
 \section{References}

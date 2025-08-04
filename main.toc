@@ -24,5 +24,5 @@
 \beamer@sectionintoc {8}{Matrix decompositions}{195}{0}{8}
 \beamer@subsectionintoc {8}{1}{Cholesky Decomposition}{195}{0}{8}
 \beamer@subsectionintoc {8}{2}{Eigendecomposition/Diagonalization}{199}{0}{8}
-\beamer@subsectionintoc {8}{3}{Singular Value Decomposition}{206}{0}{8}
+\beamer@subsectionintoc {8}{3}{Singular Value Decomposition (SVD)}{206}{0}{8}
 \beamer@sectionintoc {9}{References}{212}{0}{9}

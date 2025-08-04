@@ -2293,6 +2293,9 @@ INPUT ./images/aimssn-logo.jpg
 INPUT ./images/aimssn-logo.jpg
 INPUT ./images/aimssn-logo.jpg
 INPUT ./images/aimssn-logo.jpg
+INPUT ./decompositions_svd.tex
+INPUT ./decompositions_svd.tex
+INPUT decompositions_svd.tex
 INPUT ./images/Aims_logo2.png
 INPUT ./images/Aims_logo2.png
 INPUT ./images/Aims_logo2.png
