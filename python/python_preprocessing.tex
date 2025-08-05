@@ -1,0 +1,47 @@
+\begin{frame}{Data Preprocessing Essentials}
+    \begin{itemize}
+        \item \textbf{Why Preprocessing?} Raw data is often messy and inconsistent
+        \item \textbf{Common Tasks:}
+        \begin{itemize}
+            \item Handling missing values
+            \item Scaling and normalization
+            \item Encoding categorical variables
+            \item Feature selection and extraction
+        \end{itemize>
+        \item \textbf{Rule of Thumb:} 80% of data science is data cleaning and preprocessing
+    \end{itemize>
+\end{frame>
+
+\begin{frame}[fragile]{Data Cleaning Techniques}
+    \begin{codeblock}[Preprocessing Examples]
+        \begin{lstlisting}
+import pandas as pd
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.impute import SimpleImputer
+
+# Sample messy data
+data = {
+    'age': [25, 30, None, 35, 28],
+    'salary': [50000, 60000, 55000, None, 52000],
+    'department': ['IT', 'HR', 'IT', 'Finance', 'HR']
+}
+df = pd.DataFrame(data)
+
+# Handle missing values
+imputer = SimpleImputer(strategy='mean')
+df[['age', 'salary']] = imputer.fit_transform(df[['age', 'salary']])
+
+# Encode categorical variables
+label_encoder = LabelEncoder()
+df['department_encoded'] = label_encoder.fit_transform(df['department'])
+
+# Scale numerical features
+scaler = StandardScaler()
+df[['age_scaled', 'salary_scaled']] = scaler.fit_transform(
+    df[['age', 'salary']]
+)
+
+print(df)
+        \end{lstlisting>
+    \end{codeblock>
+\end{frame>

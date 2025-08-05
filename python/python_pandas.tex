@@ -1,0 +1,43 @@
+\begin{frame}{Introduction to Pandas}
+    \begin{itemize}
+        \item \textbf{Pandas}: Python Data Analysis Library
+        \item \textbf{Key Data Structures:}
+        \begin{itemize}
+            \item \textbf{Series}: 1D labeled array
+            \item \textbf{DataFrame}: 2D labeled data structure (like Excel spreadsheet)
+        \end{itemize>
+        \item \textbf{Perfect for:} Data cleaning, transformation, analysis, and visualization
+    \end{itemize>
+\end{frame>
+
+\begin{frame}[fragile]{Pandas DataFrames}
+    \begin{codeblock}[DataFrame Operations]
+        \begin{lstlisting}
+import pandas as pd
+
+# Creating a DataFrame
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'Diana'],
+    'Age': [25, 30, 35, 28],
+    'City': ['NY', 'LA', 'Chicago', 'Boston'],
+    'Salary': [70000, 80000, 90000, 75000]
+}
+df = pd.DataFrame(data)
+print(df)
+
+# Basic operations
+print(f"Shape: {df.shape}")
+print(f"Columns: {df.columns.tolist()}")
+print(df.head(2))  # First 2 rows
+print(df.describe())  # Statistical summary
+
+# Filtering data
+high_earners = df[df['Salary'] > 75000]
+young_people = df[df['Age'] < 30]
+
+# Reading from files
+# df = pd.read_csv('data.csv')
+# df = pd.read_excel('data.xlsx')
+        \end{lstlisting>
+    \end{codeblock>
+\end{frame>

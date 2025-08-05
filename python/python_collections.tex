@@ -1,0 +1,176 @@
+\begin{frame}[fragile]{Lists - Dynamic Arrays}
+    \begin{codeblock}[List Operations]
+        \begin{lstlisting}
+# Creating lists
+empty_list = []
+numbers = [1, 2, 3, 4, 5]
+mixed = [1, "hello", 3.14, True]
+nested = [[1, 2], [3, 4], [5, 6]]
+
+# List methods
+fruits = ["apple", "banana"]
+fruits.append("orange")          # Add to end
+fruits.insert(1, "grape")        # Insert at index
+fruits.extend(["kiwi", "mango"])  # Add multiple items
+print(fruits)  # ['apple', 'grape', 'banana', 'orange', 'kiwi', 'mango']
+
+# Removing items
+fruits.remove("grape")      # Remove first occurrence
+last_fruit = fruits.pop()   # Remove and return last item
+del fruits[0]              # Delete by index
+print(fruits)
+
+# List operations
+numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+print(f"Length: {len(numbers)}")
+print(f"Max: {max(numbers)}, Min: {min(numbers)}")
+print(f"Sum: {sum(numbers)}")
+print(f"Count of 1: {numbers.count(1)}")
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}
+
+\begin{frame}[fragile]{List Slicing and Indexing}
+    \begin{codeblock}[Advanced List Operations]
+        \begin{lstlisting}
+# List slicing
+data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+print(data[0])      # First element: 0
+print(data[-1])     # Last element: 9
+print(data[2:5])    # Elements 2 to 4: [2, 3, 4]
+print(data[:3])     # First 3 elements: [0, 1, 2]
+print(data[7:])     # From index 7 to end: [7, 8, 9]
+print(data[::2])    # Every 2nd element: [0, 2, 4, 6, 8]
+print(data[::-1])   # Reverse: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+# List copying
+original = [1, 2, 3]
+shallow_copy = original[:]      # or original.copy()
+deep_copy = original.copy()
+
+original.append(4)
+print(f"Original: {original}")     # [1, 2, 3, 4]
+print(f"Copy: {shallow_copy}")     # [1, 2, 3]
+
+# Sorting
+numbers = [3, 1, 4, 1, 5, 9]
+numbers.sort()                     # In-place sorting
+print(f"Sorted: {numbers}")
+sorted_desc = sorted(numbers, reverse=True)  # Returns new list
+print(f"Descending: {sorted_desc}")
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}
+
+\begin{frame}[fragile]{Tuples - Immutable Sequences}
+    \begin{codeblock}[Tuple Operations]
+        \begin{lstlisting}
+# Creating tuples
+empty_tuple = ()
+single_item = (42,)  # Note the comma for single item
+coordinates = (10, 20)
+rgb_color = (255, 128, 0)
+mixed_tuple = (1, "hello", 3.14)
+
+# Tuple unpacking
+x, y = coordinates
+print(f"x: {x}, y: {y}")
+
+red, green, blue = rgb_color
+print(f"RGB: ({red}, {green}, {blue})")
+
+# Multiple assignment using tuples
+a, b = 1, 2         # Same as a, b = (1, 2)
+a, b = b, a         # Swap values elegantly
+
+# Tuple methods (limited because they're immutable)
+numbers = (1, 2, 3, 2, 4, 2)
+print(f"Count of 2: {numbers.count(2)}")    # 3
+print(f"Index of 3: {numbers.index(3)}")    # 2
+
+# Named tuples (from collections module)
+from collections import namedtuple
+Point = namedtuple('Point', ['x', 'y'])
+p = Point(10, 20)
+print(f"Point: ({p.x}, {p.y})")
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}
+
+\begin{frame}[fragile]{Dictionaries - Key-Value Pairs}
+    \begin{codeblock}[Dictionary Operations]
+        \begin{lstlisting}
+# Creating dictionaries
+empty_dict = {}
+student = {
+    "name": "Alice",
+    "age": 22,
+    "major": "Computer Science",
+    "gpa": 3.8
+}
+
+# Accessing and modifying
+print(student["name"])           # Alice
+print(student.get("age", 0))     # 22 (with default)
+student["age"] = 23              # Update value
+student["graduation_year"] = 2025  # Add new key
+
+# Dictionary methods
+print(student.keys())            # All keys
+print(student.values())          # All values
+print(student.items())           # Key-value pairs
+
+# Safe access and updates
+phone = student.get("phone", "Not provided")
+student.setdefault("phone", "555-1234")  # Add if not exists
+
+# Dictionary comprehension
+squares = {x: x**2 for x in range(1, 6)}
+print(squares)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+
+# Nested dictionaries
+students = {
+    "alice": {"age": 22, "gpa": 3.8},
+    "bob": {"age": 21, "gpa": 3.6}
+}
+print(students["alice"]["gpa"])  # 3.8
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}
+
+\begin{frame}[fragile]{Sets - Unique Collections}
+    \begin{codeblock}[Set Operations]
+        \begin{lstlisting}
+# Creating sets
+empty_set = set()  # Note: {} creates an empty dict, not set
+numbers = {1, 2, 3, 4, 5}
+duplicates = {1, 2, 2, 3, 3, 3}  # Automatically removes duplicates
+print(duplicates)  # {1, 2, 3}
+
+# Set operations
+set_a = {1, 2, 3, 4}
+set_b = {3, 4, 5, 6}
+
+print(f"Union: {set_a | set_b}")           # {1, 2, 3, 4, 5, 6}
+print(f"Intersection: {set_a & set_b}")    # {3, 4}
+print(f"Difference: {set_a - set_b}")      # {1, 2}
+print(f"Symmetric diff: {set_a ^ set_b}")  # {1, 2, 5, 6}
+
+# Set methods
+fruits = {"apple", "banana", "orange"}
+fruits.add("grape")
+fruits.update(["kiwi", "mango"])
+fruits.discard("banana")  # Won't raise error if not found
+print(fruits)
+
+# Membership testing (very fast for sets)
+print("apple" in fruits)      # True
+print("cherry" not in fruits) # True
+
+# Converting between types
+list_with_dupes = [1, 2, 2, 3, 3, 3]
+unique_list = list(set(list_with_dupes))  # Remove duplicates
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}

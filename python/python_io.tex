@@ -1,0 +1,51 @@
+\begin{frame}{Working with Files in Python}
+    \begin{itemize}
+        \item \textbf{File Operations:} Reading, writing, and processing files
+        \item \textbf{Common File Types in Data Science:}
+        \begin{itemize}
+            \item \textbf{CSV}: Comma-separated values for tabular data
+            \item \textbf{JSON}: JavaScript Object Notation for structured data
+            \item \textbf{TXT}: Plain text files
+            \item \textbf{Excel}: .xlsx files for spreadsheet data
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Reading and Writing Files}
+    \begin{codeblock}[File I/O Examples]
+        \begin{lstlisting}
+# Writing to a file
+with open("example.txt", "w") as file:
+    file.write("Hello, World!\n")
+    file.write("Python for AI/ML\n")
+
+# Reading from a file
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+# Reading line by line
+with open("example.txt", "r") as file:
+    for line in file:
+        print(line.strip())  # Remove newline characters
+
+# Working with CSV files
+import csv
+
+# Writing CSV
+data = [["Name", "Age", "City"],
+        ["Alice", 25, "New York"],
+        ["Bob", 30, "London"]]
+
+with open("people.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerows(data)
+
+# Reading CSV
+with open("people.csv", "r") as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}

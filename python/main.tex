@@ -1,0 +1,110 @@
+% Copyright ©2020  
+% THE AIMS-SENEGAL ACADEMIC TEAM 	
+% version 2.0 (last edition, May 21, 2020)
+
+\documentclass[11pt]{beamer}
+\usetheme{CambridgeUS}
+
+% Package imports
+\input{preamble.tex}
+\usepackage{tikz-3dplot}
+\usepackage{subcaption}  % for subfigure environments
+% \usetikzlibrary{angles, quotes, decorations.pathmorphing}
+
+% Document metadata
+\input{metadata.tex}
+
+% Beamer settings
+\setbeamercovered{invisible}
+
+\begin{document}
+\tdplotsetmaincoords{60}{110}
+
+% ===== TITLE AND TOC =====
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}[allowframebreaks,t]{Overview}
+    \tableofcontents[pausesections]
+\end{frame}
+
+% Alternative: If some sections still don't show, use this version
+% \begin{frame}[allowframebreaks,t,shrink=5]{Complete Overview}
+%     \footnotesize
+%     \tableofcontents
+% \end{frame}
+
+% Alternative detailed overview - uncomment if needed
+% \begin{frame}[allowframebreaks,t]{Detailed Overview}
+%     \tableofcontents
+% \end{frame}
+
+% Section overview template - use at beginning of each section if desired
+% \AtBeginSection[]
+% {
+%   \begin{frame}<beamer>{Outline}
+%     \tableofcontents[currentsection,hideothersubsections]
+%   \end{frame}
+% }
+
+
+% ===== MOTIVATION SECTION =====
+\section{Why Python for AI/ML?}
+\input{motivation_python.tex}
+
+% ===== PYTHON BASICS =====
+\section{Python Fundamentals}
+\subsection{Getting Started}
+\input{python_basics.tex}
+
+\subsection{Data Types and Variables}
+\input{python_datatypes.tex}
+
+\subsection{Control Structures}
+\input{python_control.tex}
+
+
+% ===== PYTHON FOR DATA SCIENCE =====
+\section{Python for Data Science}
+\subsection{Lists, Tuples, and Dictionaries}
+\input{python_collections.tex}
+
+
+\subsection{Functions and Modules}
+\input{python_functions.tex}
+
+
+\subsection{File Handling and I/O}
+\input{python_io.tex}
+
+
+% ===== SCIENTIFIC COMPUTING =====
+\section{Scientific Computing Libraries}
+\subsection{NumPy for Numerical Computing}
+\input{python_numpy.tex}
+
+\subsection{Pandas for Data Manipulation}
+% \input{python_pandas.tex} ----- fix errors
+
+\subsection{Matplotlib for Visualization}
+\input{python_matplotlib.tex}
+
+% ===== MACHINE LEARNING INTRODUCTION =====
+\section{Introduction to Machine Learning with Python}
+\subsection{Scikit-learn Basics}
+\input{python_sklearn.tex}
+
+\subsection{Data Preprocessing}
+% \input{python_preprocessing.tex} --- fix errors
+
+% ===== PRACTICAL EXERCISES =====
+\section{Hands-on Exercises}
+% \input{python_exercises.tex} ---- fix errors
+
+% ===== RESOURCES =====
+\section{Resources and Next Steps}
+% \input{python_resources.tex} ---- fix errors
+
+
+\end{document}

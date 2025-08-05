@@ -1,0 +1,60 @@
+\begin{frame}{Debugging Python Code}
+    \begin{itemize}
+        \item \textbf{Common Error Types:}
+        \begin{itemize}
+            \item \textbf{SyntaxError}: Invalid Python syntax
+            \item \textbf{NameError}: Variable not defined
+            \item \textbf{TypeError}: Wrong data type for operation
+            \item \textbf{IndexError}: List index out of range
+            \item \textbf{KeyError}: Dictionary key not found
+        \end{itemize}
+        
+        \item \textbf{Debugging Techniques:}
+        \begin{itemize}
+            \item Use \pycode{print()} statements strategically
+            \item Python debugger: \pycode{import pdb; pdb.set_trace()}
+            \item IDE debugging tools
+            \item Read error messages carefully
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Error Handling with Try-Except}
+    \begin{codeblock}[Exception Handling]
+        \begin{lstlisting}
+# Basic try-except
+try:
+    number = int(input("Enter a number: "))
+    result = 10 / number
+    print(f"Result: {result}")
+except ValueError:
+    print("Invalid input! Please enter a number.")
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+else:
+    print("No errors occurred!")
+finally:
+    print("This always executes.")
+
+# Function with error handling
+def safe_divide(a, b):
+    """Safely divide two numbers."""
+    try:
+        result = a / b
+        return result
+    except ZeroDivisionError:
+        print("Warning: Division by zero!")
+        return None
+    except TypeError:
+        print("Error: Both arguments must be numbers!")
+        return None
+
+# Testing the function
+print(safe_divide(10, 2))    # 5.0
+print(safe_divide(10, 0))    # None (with warning)
+print(safe_divide(10, "2"))  # None (with error)
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}

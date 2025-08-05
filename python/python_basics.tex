@@ -1,0 +1,106 @@
+\begin{frame}{Getting Started with Python}
+    \begin{itemize}
+        \item \textbf{Installation Options:}
+        \begin{itemize}
+            \item \textbf{Anaconda}: Complete data science platform (recommended for beginners)
+            \item \textbf{Python.org}: Official Python distribution
+            \item \textbf{Google Colab}: Browser-based, no installation required
+        \end{itemize}
+        
+        \item \textbf{Development Environments:}
+        \begin{itemize}
+            \item \textbf{Jupyter Notebook}: Interactive development and documentation
+            \item \textbf{VS Code}: Versatile editor with Python extensions
+            \item \textbf{PyCharm}: Full-featured Python IDE
+            \item \textbf{Spyder}: Scientific development environment
+        \end{itemize}
+        
+        \item \textbf{First Steps:}
+        \begin{itemize}
+            \item Open a Python interpreter or Jupyter notebook
+            \item Try the classic first program: \pycode{print("Hello, World!")}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Your First Python Program}
+    \begin{codeblock}[Hello World Example]
+        \begin{lstlisting}
+# This is a comment - Python ignores this line
+print("Hello, World!")
+print("Welcome to Python for AI/ML!")
+
+# Variables and basic operations
+name = "AMMI Student"
+year = 2025
+print(f"Hello {name}, welcome to {year}!")
+
+# Simple calculation
+result = 10 + 5 * 2
+print(f"The result is: {result}")
+        \end{lstlisting}
+    \end{codeblock}
+    
+    \textbf{Output:}
+    \begin{block}{}
+        \footnotesize
+        \texttt{Hello, World!} \\
+        \texttt{Welcome to Python for AI/ML!} \\
+        \texttt{Hello AMMI Student, welcome to 2025!} \\
+        \texttt{The result is: 20}
+    \end{block}
+\end{frame}
+
+% \begin{frame}{Python Syntax Fundamentals}
+%     \begin{itemize}
+%         \item \textbf{Indentation Matters:} Python uses indentation to define code blocks
+%         \begin{itemize}
+%             \item Use 4 spaces (recommended) or tabs consistently
+%             \item No curly braces \{\} like other languages
+%         \end{itemize}
+        
+%         \item \textbf{Case Sensitive:} \pycode{Variable} and \pycode{variable} are different
+        
+%         \item \textbf{Comments:}
+%         \begin{itemize}
+%             \item Single line: \pycode{# This is a comment}
+%             \item Multi-line: \pycode{"""This is a multi-line comment"""}
+%         \end{itemize}
+        
+%         \item \textbf{Line Continuation:}
+%         \begin{itemize}
+%             \item Use backslash \pycode{\\} or parentheses for long lines
+%             \item Python statements typically end with a newline
+%         \end{itemize}
+%     \end{itemize}
+% \end{frame}
+
+\begin{frame}[fragile]{Interactive Python - REPL}
+    \begin{itemize}
+        \item \textbf{REPL}: Read-Eval-Print-Loop for interactive programming
+        \item Great for testing ideas and learning
+    \end{itemize}
+    
+    \begin{codeblock}[Python Interactive Session]
+        \begin{lstlisting}
+>>> 2 + 3
+5
+>>> name = "Python"
+>>> print(f"I love {name}!")
+I love Python!
+>>> import math
+>>> math.sqrt(16)
+4.0
+>>> help(print)  # Get help on any function
+        \end{lstlisting}
+    \end{codeblock}
+    
+    \begin{exercise}
+        Open a Python interpreter and try:
+        \begin{enumerate}
+            \item Calculate \pycode{2 ** 10} (2 to the power of 10)
+            \item Create a variable with your name and print a greeting
+            \item Use \pycode{help(len)} to learn about the len function
+        \end{enumerate}
+    \end{exercise}
+\end{frame}

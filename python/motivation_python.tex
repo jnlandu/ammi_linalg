@@ -1,0 +1,116 @@
+\begin{frame}{Why Python for AI and Machine Learning?}
+    \begin{itemize}
+        \item \textbf{Simplicity and Readability:} Python's clean syntax allows you to focus on problem-solving rather than complex language features
+        \item \textbf{Rich Ecosystem:} Comprehensive libraries for data science, machine learning, and scientific computing
+        \item \textbf{Industry Standard:} Used by leading tech companies (Google, Netflix, Uber) and research institutions
+        \item \textbf{Rapid Prototyping:} Quick development cycle for testing ideas and building prototypes
+        \item \textbf{Community Support:} Large, active community with extensive documentation and tutorials
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Python in the AI/ML Pipeline}
+    \begin{figure}
+        \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            % Data Collection
+            \node[draw, rectangle, fill=pythonblue!20, minimum width=2cm, minimum height=1cm] (data) at (0,0) {Data Collection};
+            
+            % Data Processing
+            \node[draw, rectangle, fill=pythongreen!20, minimum width=2cm, minimum height=1cm] (process) at (3,0) {Data Processing};
+            
+            % Model Training
+            \node[draw, rectangle, fill=pythonyellow!20, minimum width=2cm, minimum height=1cm] (train) at (6,0) {Model Training};
+            
+            % Deployment
+            \node[draw, rectangle, fill=pythonred!20, minimum width=2cm, minimum height=1cm] (deploy) at (9,0) {Deployment};
+            
+            % Arrows
+            \draw[->, thick] (data) -- (process);
+            \draw[->, thick] (process) -- (train);
+            \draw[->, thick] (train) -- (deploy);
+            
+            % Libraries below
+            \node[below=0.5cm of data] {\footnotesize requests, scrapy};
+            \node[below=0.5cm of process] {\footnotesize pandas, numpy};
+            \node[below=0.5cm of train] {\footnotesize scikit-learn, TensorFlow};
+            \node[below=0.5cm of deploy] {\footnotesize Flask, FastAPI};
+        \end{tikzpicture}
+        \end{center}
+        \caption{Python libraries supporting the entire AI/ML workflow}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Key Python Libraries for AI/ML}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \textbf{Core Data Science:}
+            \begin{itemize}
+                \item \textbf{NumPy}: Numerical computing
+                \item \textbf{Pandas}: Data manipulation
+                \item \textbf{Matplotlib/Seaborn}: Visualization
+                \item \textbf{Jupyter}: Interactive development
+            \end{itemize}
+            
+            \textbf{Machine Learning:}
+            \begin{itemize}
+                \item \textbf{Scikit-learn}: Classical ML
+                \item \textbf{TensorFlow/PyTorch}: Deep learning
+                \item \textbf{XGBoost}: Gradient boosting
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.5\textwidth}
+            \textbf{Specialized Domains:}
+            \begin{itemize}
+                \item \textbf{OpenCV}: Computer vision
+                \item \textbf{NLTK/spaCy}: Natural language processing
+                \item \textbf{NetworkX}: Graph analysis
+                \item \textbf{Statsmodels}: Statistical modeling
+            \end{itemize}
+            
+            \textbf{Deployment \& Production:}
+            \begin{itemize}
+                \item \textbf{Flask/FastAPI}: Web APIs
+                \item \textbf{Docker}: Containerization
+                \item \textbf{MLflow}: ML lifecycle management
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Learning Path for AI/ML with Python}
+    \begin{figure}
+        \begin{center}
+        \begin{tikzpicture}[scale=0.9]
+            % Foundation
+            \node[draw, rounded corners, fill=pythonblue!20, minimum width=3cm, minimum height=1cm] (foundation) at (0,3) {Python Fundamentals};
+            
+            % Data Science
+            \node[draw, rounded corners, fill=pythongreen!20, minimum width=3cm, minimum height=1cm] (datascience) at (-2.5,1.5) {Data Science Libraries};
+            
+            % Machine Learning
+            \node[draw, rounded corners, fill=pythonyellow!20, minimum width=3cm, minimum height=1cm] (ml) at (2.5,1.5) {Machine Learning};
+            
+            % Specialization
+            \node[draw, rounded corners, fill=pythonred!20, minimum width=2cm, minimum height=0.8cm] (cv) at (-3,0) {Computer Vision};
+            \node[draw, rounded corners, fill=pythonred!20, minimum width=2cm, minimum height=0.8cm] (nlp) at (0,0) {NLP};
+            \node[draw, rounded corners, fill=pythonred!20, minimum width=2cm, minimum height=0.8cm] (dl) at (3,0) {Deep Learning};
+            
+            % Arrows
+            \draw[->, thick] (foundation) -- (datascience);
+            \draw[->, thick] (foundation) -- (ml);
+            \draw[->, thick] (datascience) -- (cv);
+            \draw[->, thick] (datascience) -- (nlp);
+            \draw[->, thick] (ml) -- (nlp);
+            \draw[->, thick] (ml) -- (dl);
+            
+            % Time indicators
+            \node[right=0.5cm of foundation] {\footnotesize 2-3 weeks};
+            \node[right=0.5cm of datascience] {\footnotesize 3-4 weeks};
+            \node[right=0.5cm of ml] {\footnotesize 4-6 weeks};
+            \node[below=0.3cm of nlp] {\footnotesize Ongoing specialization};
+        \end{tikzpicture}
+        \end{center}
+        \caption{Recommended learning progression for AI/ML with Python}
+    \end{figure}
+\end{frame}

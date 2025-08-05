@@ -1,0 +1,49 @@
+\begin{frame}{Data Visualization with Matplotlib}
+    \begin{itemize}
+        \item \textbf{Matplotlib}: Comprehensive plotting library
+        \item \textbf{Plot Types:} Line plots, bar charts, histograms, scatter plots, and more
+        \item \textbf{Customization:} Colors, labels, legends, annotations
+        \item \textbf{Integration:} Works seamlessly with NumPy and Pandas
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Creating Basic Plots}
+    \begin{codeblock}[Matplotlib Examples]
+        \begin{lstlisting}
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Line plot
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.figure(figsize=(10, 6))
+plt.plot(x, y, label='sin(x)')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Sine Wave')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Bar chart
+categories = ['A', 'B', 'C', 'D']
+values = [23, 45, 56, 78]
+
+plt.figure(figsize=(8, 6))
+plt.bar(categories, values, color='skyblue')
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Bar Chart Example')
+plt.show()
+
+# Histogram
+data = np.random.normal(0, 1, 1000)
+plt.hist(data, bins=30, alpha=0.7)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Normal Distribution')
+plt.show()
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}

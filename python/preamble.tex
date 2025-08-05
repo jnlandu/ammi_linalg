@@ -1,0 +1,184 @@
+% AIMS official colors - modernized palette
+\definecolor{aimscolour}{rgb}{0.54,0.11,0.01}
+\definecolor{modernblue}{rgb}{0.2,0.4,0.8}
+\definecolor{softgray}{rgb}{0.95,0.95,0.95}
+\definecolor{accentorange}{rgb}{1.0,0.6,0.2}
+
+
+%  Added more colours
+% AIMS official colors - modernized palette
+\definecolor{aimscolour}{rgb}{0.54,0.11,0.01}
+\definecolor{modernblue}{rgb}{0.2,0.4,0.8}
+\definecolor{softgray}{rgb}{0.95,0.95,0.95}
+\definecolor{accentorange}{rgb}{1.0,0.6,0.2}
+
+% Python-specific colors for code highlighting
+\definecolor{pythonblue}{RGB}{53, 114, 165}
+\definecolor{pythonyellow}{RGB}{255, 193, 7}
+\definecolor{pythongreen}{RGB}{67, 160, 71}
+\definecolor{pythonred}{RGB}{229, 57, 53}
+\definecolor{pythongray}{RGB}{97, 97, 97}
+\definecolor{codebg}{RGB}{248, 249, 250}
+\definecolor{codecomment}{RGB}{106, 153, 85}
+\definecolor{codestring}{RGB}{163, 21, 21}
+\definecolor{codekeyword}{RGB}{0, 0, 255}
+
+% Use modern blue as primary color
+\usecolortheme[named=modernblue]{structure}
+
+% Enhanced packages for modern design
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage[section]{placeins}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows,decorations.pathmorphing,backgrounds,fit,petri,shapes.geometric}
+\usepackage{fontawesome5}  % Modern icons
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{textcomp}
+
+% Modern spacing
+\onehalfspacing
+
+% Subtle background without logo overlay
+\setbeamertemplate{background}{}
+
+% Modern block styling with transparency
+\definecolor{UMRed}{rgb}{0.5, 0.09, 0.09}
+\addtobeamertemplate{block begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
+\addtobeamertemplate{block alerted begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
+\addtobeamertemplate{block example begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
+
+% Enhanced proof environment
+\addtobeamertemplate{proof begin}{%
+    \setbeamercolor{block title}{fg=white,bg=modernblue}%
+    \setbeamercolor{block body}{fg=black, bg=blue!10!white}%
+}{}
+
+% Custom theorem environments
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{remark}{Remark}
+
+% Bibliography styling
+\usepackage[style=phys]{biblatex}
+\addbibresource{bibliography.bib}
+
+% Modern section transitions
+\AtBeginSubsection[]
+{
+   \begin{frame}
+        \frametitle{\faList \, Section Overview}
+        \tableofcontents[currentsection,currentsubsection]
+   \end{frame}
+}
+
+% Equation numbering
+\counterwithin{equation}{section}
+
+% Advanced differential notation
+\usepackage[roman, thin, thinp, thinc]{esdiff}
+\usepackage{bm}
+
+% Modern footer with page numbers
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+\beamertemplatenavigationsymbolsempty
+\setbeamerfont{page number in head/foot}{size=\footnotesize}
+
+% Algorithm styling
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+% Enhanced comment styling
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{modernblue}{#1}}
+\SetCommentSty{mycommfont}
+
+% Modern frame title formatting
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\normalsize,series=\normalfont}
+
+% Enhanced itemize symbols
+\setbeamertemplate{itemize item}{\faChevronRight}
+\setbeamertemplate{itemize subitem}{\faAngleRight}
+\setbeamertemplate{itemize subsubitem}{\faCircle}
+
+% Modern alert and example block colors
+\setbeamercolor{block title alerted}{fg=white,bg=red!70!black}
+\setbeamercolor{block body alerted}{fg=black,bg=red!10!white}
+\setbeamercolor{block title example}{fg=white,bg=green!70!black}
+\setbeamercolor{block body example}{fg=black,bg=green!10!white}
+
+% Python code listing style with modern colors
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    basicstyle=\footnotesize\ttfamily,
+    backgroundcolor=\color{codebg},
+    commentstyle=\color{codecomment}\itshape,
+    keywordstyle=\color{modernblue}\bfseries,
+    stringstyle=\color{codestring},
+    numberstyle=\tiny\color{pythongray},
+    numbers=left,
+    numbersep=5pt,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=false,
+    captionpos=b,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{modernblue},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    xleftmargin=10pt,
+    xrightmargin=10pt,
+    aboveskip=10pt,
+    belowskip=10pt,
+    lineskip=2pt
+}
+
+% Set default listing style
+\lstset{style=pythonstyle}
+
+% Custom commands for Python code
+\newcommand{\pycode}[1]{\lstinline[style=pythonstyle]|#1|}
+\newcommand{\pyfile}[2][]{\lstinputlisting[style=pythonstyle,#1]{#2}}
+
+% Custom environments for exercises
+\newenvironment{exercise}[1][Exercise]{%
+    \begin{block}{\faEdit \, #1}
+}{%
+    \end{block}
+}
+
+% \newenvironment{solution}[1][Solution]{%
+%     \begin{exampleblock}{\faCheckCircle \, #1}
+% }{%
+%     \end{exampleblock}
+% }
+
+% Custom environment for code examples
+\newenvironment{codeblock}[1][Python Code]{%
+    \begin{block}{\faCode \, #1}
+    \footnotesize
+}{%
+    \end{block}
+}
+
+% Hyperlink styling
+\hypersetup{
+    colorlinks=true,
+    linkcolor=modernblue,
+    urlcolor=modernblue,
+    citecolor=pythongreen
+}

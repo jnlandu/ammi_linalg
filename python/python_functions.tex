@@ -1,0 +1,65 @@
+\begin{frame}[fragile]{Defining Functions}
+    \begin{codeblock}[Function Basics]
+        \begin{lstlisting}
+# Basic function definition
+def greet(name):
+    """This function greets someone."""
+    return f"Hello, {name}!"
+
+# Calling the function
+message = greet("Alice")
+print(message)  # Hello, Alice!
+
+# Function with multiple parameters
+def calculate_area(length, width):
+    """Calculate rectangle area."""
+    area = length * width
+    return area
+
+result = calculate_area(5, 3)
+print(f"Area: {result}")
+
+# Function with default parameters
+def power(base, exponent=2):
+    """Calculate base raised to exponent (default: 2)."""
+    return base ** exponent
+
+print(power(4))      # 16 (4^2)
+print(power(4, 3))   # 64 (4^3)
+
+# Function with variable arguments
+def sum_all(*args):
+    """Sum all provided arguments."""
+    return sum(args)
+
+print(sum_all(1, 2, 3, 4, 5))  # 15
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}
+
+\begin{frame}{Modules and Packages}
+    \begin{itemize}
+        \item \textbf{Importing Modules:}
+        \begin{itemize}
+            \item \pycode{import math} - Import entire module
+            \item \pycode{from math import sqrt} - Import specific function
+            \item \pycode{import numpy as np} - Import with alias
+        \end{itemize}
+        
+        \item \textbf{Standard Library Modules:}
+        \begin{itemize}
+            \item \textbf{math}: Mathematical functions
+            \item \textbf{random}: Random number generation
+            \item \textbf{datetime}: Date and time handling
+            \item \textbf{os}: Operating system interface
+            \item \textbf{json}: JSON data handling
+        \end{itemize}
+        
+        \item \textbf{Creating Your Own Modules:}
+        \begin{itemize}
+            \item Save functions in a \texttt{.py} file
+            \item Import using the filename (without \texttt{.py})
+            \item Use \pycode{if __name__ == "__main__":} for executable scripts
+        \end{itemize}
+    \end{itemize}
+\end{frame}

@@ -1,0 +1,63 @@
+\begin{frame}{Python Best Practices for Data Science}
+    \begin{itemize}
+        \item \textbf{Code Style (PEP 8):}
+        \begin{itemize}
+            \item Use 4 spaces for indentation
+            \item Keep lines under 79 characters
+            \item Use descriptive variable names: \pycode{student_grades} not \pycode{sg}
+            \item Follow naming conventions: \pycode{snake_case} for variables and functions
+        \end{itemize}
+        
+        \item \textbf{Documentation:}
+        \begin{itemize}
+            \item Write docstrings for functions and classes
+            \item Use comments for complex logic
+            \item Keep README files for projects
+        \end{itemize}
+        
+        \item \textbf{Code Organization:}
+        \begin{itemize}
+            \item Use functions to avoid code repetition
+            \item Organize related code into modules
+            \item Separate configuration from code
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Writing Clean, Readable Code}
+    \begin{codeblock}[Best Practices Example]
+        \begin{lstlisting}
+# Good: Clear, well-documented function
+def calculate_student_average(grades):
+    """
+    Calculate the average grade for a student.
+    
+    Args:
+        grades (list): List of numeric grades
+        
+    Returns:
+        float: Average grade, or 0 if no grades provided
+    """
+    if not grades:
+        return 0
+    
+    total = sum(grades)
+    count = len(grades)
+    average = total / count
+    
+    return round(average, 2)
+
+# Good: Descriptive variable names
+student_names = ["Alice", "Bob", "Charlie"]
+final_grades = [85, 92, 78]
+
+# Good: Using list comprehension appropriately
+passing_students = [
+    name for name, grade in zip(student_names, final_grades) 
+    if grade >= 70
+]
+
+print(f"Passing students: {passing_students}")
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}

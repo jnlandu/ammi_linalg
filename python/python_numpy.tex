@@ -1,0 +1,67 @@
+\begin{frame}[fragile]{Introduction to NumPy}
+    \begin{itemize}
+        \item \textbf{NumPy}: Numerical Python - foundation for scientific computing
+        \item \textbf{Key Features:}
+        \begin{itemize}
+            \item N-dimensional array objects (ndarray)
+            \item Broadcasting functions
+            \item Tools for integrating C/C++ and Fortran code
+            \item Linear algebra, Fourier transform, and random number capabilities
+        \end{itemize}
+    \end{itemize}
+    
+    \begin{codeblock}[NumPy Basics]
+        \begin{lstlisting}
+import numpy as np
+
+# Creating arrays
+arr1d = np.array([1, 2, 3, 4, 5])
+arr2d = np.array([[1, 2, 3], [4, 5, 6]])
+zeros = np.zeros((3, 3))
+ones = np.ones((2, 4))
+range_arr = np.arange(0, 10, 2)  # [0, 2, 4, 6, 8]
+
+print(f"1D Array: {arr1d}")
+print(f"Shape: {arr2d.shape}")    # (2, 3)
+print(f"Data type: {arr1d.dtype}") # int64
+
+# Array operations
+squared = arr1d ** 2
+print(f"Squared: {squared}")
+
+# Linear algebra
+matrix_a = np.array([[1, 2], [3, 4]])
+matrix_b = np.array([[5, 6], [7, 8]])
+product = np.dot(matrix_a, matrix_b)
+print(f"Matrix product:\n{product}")
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}
+
+\begin{frame}{Why NumPy for AI/ML?}
+    \begin{itemize}
+        \item \textbf{Performance:} 10-100x faster than pure Python lists
+        \item \textbf{Memory Efficiency:} Contiguous memory layout
+        \item \textbf{Broadcasting:} Vectorized operations without explicit loops
+        \item \textbf{Foundation:} Base for pandas, scikit-learn, TensorFlow
+        \item \textbf{Interoperability:} Works seamlessly with other libraries
+    \end{itemize}
+    
+    \begin{figure}
+        \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \node[draw, rectangle, fill=pythonblue!20] (numpy) at (0,0) {NumPy};
+            \node[draw, rectangle, fill=pythongreen!20] (pandas) at (-2,1.5) {Pandas};
+            \node[draw, rectangle, fill=pythonyellow!20] (sklearn) at (2,1.5) {Scikit-learn};
+            \node[draw, rectangle, fill=pythonred!20] (matplotlib) at (-2,-1.5) {Matplotlib};
+            \node[draw, rectangle, fill=pythongray!20] (tensorflow) at (2,-1.5) {TensorFlow};
+            
+            \draw[->, thick] (numpy) -- (pandas);
+            \draw[->, thick] (numpy) -- (sklearn);
+            \draw[->, thick] (numpy) -- (matplotlib);
+            \draw[->, thick] (numpy) -- (tensorflow);
+        \end{tikzpicture}
+        \end{center}
+        \caption{NumPy as the foundation of the Python data science ecosystem}
+    \end{figure}
+\end{frame}

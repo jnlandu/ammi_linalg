@@ -1,0 +1,166 @@
+\begin{frame}{Python Data Types Overview}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \textbf{Basic Types:}
+            \begin{itemize}
+                \item \textbf{int}: Integers (1, 42, -5)
+                \item \textbf{float}: Decimal numbers (3.14, -2.5)
+                \item \textbf{str}: Text strings ("Hello", 'Python')
+                \item \textbf{bool}: True or False
+            \end{itemize}
+            
+            \textbf{Collection Types:}
+            \begin{itemize}
+                \item \textbf{list}: Ordered, mutable [1, 2, 3]
+                \item \textbf{tuple}: Ordered, immutable (1, 2, 3)
+                \item \textbf{dict}: Key-value pairs \{"key": "value"\}
+                \item \textbf{set}: Unique elements \{1, 2, 3\}
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \begin{center}
+                \begin{tikzpicture}[scale=0.7]
+                    % Basic types
+                    \node[draw, rounded corners, fill=pythonblue!20] (basic) at (0,2) {Basic Types};
+                    \node[below=0.3cm of basic, font=\footnotesize] {int, float, str, bool};
+                    
+                    % Collections
+                    \node[draw, rounded corners, fill=pythongreen!20] (collections) at (0,0) {Collections};
+                    \node[below=0.3cm of collections, font=\footnotesize] {list, tuple, dict, set};
+                    
+                    % Advanced
+                    \node[draw, rounded corners, fill=pythonyellow!20] (advanced) at (0,-2) {Advanced};
+                    \node[below=0.3cm of advanced, font=\footnotesize] {functions, classes, modules};
+                \end{tikzpicture}
+                \end{center}
+                \caption{Python type hierarchy}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Numbers and Basic Operations}
+    \begin{codeblock}[Numeric Types and Operations]
+        \begin{lstlisting}
+# Integer operations
+a = 10
+b = 3
+print(f"Addition: {a + b}")        # 13
+print(f"Subtraction: {a - b}")     # 7
+print(f"Multiplication: {a * b}")  # 30
+print(f"Division: {a / b}")        # 3.333...
+print(f"Floor division: {a // b}") # 3
+print(f"Modulus: {a % b}")         # 1
+print(f"Exponentiation: {a ** b}") # 1000
+
+# Float operations
+pi = 3.14159
+radius = 5.0
+area = pi * radius ** 2
+print(f"Circle area: {area:.2f}")  # 78.54
+
+# Type checking
+print(type(a))        # <class 'int'>
+print(type(pi))       # <class 'float'>
+print(isinstance(a, int))  # True
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}
+
+\begin{frame}[fragile]{Strings and Text Processing}
+    \begin{codeblock}[String Operations]
+        \begin{lstlisting}
+# String creation
+name = "Alice"
+greeting = 'Hello'
+message = """This is a
+multi-line string"""
+
+# String formatting
+age = 25
+formatted = f"My name is {name} and I am {age} years old"
+print(formatted)
+
+# String methods
+text = "  Python Programming  "
+print(text.strip())           # Remove whitespace
+print(text.upper())           # PYTHON PROGRAMMING
+print(text.lower())           # python programming
+print(text.replace("Python", "Java"))  # Java Programming
+
+# String slicing
+word = "Machine Learning"
+print(word[0:7])      # "Machine"
+print(word[8:])       # "Learning"
+print(word[::-1])     # Reverse string
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}
+
+\begin{frame}[fragile]{Variables and Assignment}
+    \begin{codeblock}[Variable Assignment and Naming]
+        \begin{lstlisting}
+# Variable assignment
+x = 5
+y = 10
+z = x + y
+
+# Multiple assignment
+a, b, c = 1, 2, 3
+first_name, last_name = "John", "Doe"
+
+# Variable naming conventions (PEP 8)
+student_name = "Alice"      # Good: snake_case
+CONSTANT_VALUE = 3.14159    # Good: UPPER_CASE for constants
+class_size = 30             # Good: descriptive names
+
+# Avoid these naming styles
+# 1student = "Bob"          # Error: starts with number
+# student-name = "Charlie"  # Error: hyphens not allowed
+# class = "ML"              # Error: reserved keyword
+
+# Dynamic typing
+var = 42        # var is an integer
+print(type(var))
+var = "Hello"   # now var is a string
+print(type(var))
+var = [1, 2, 3] # now var is a list
+print(type(var))
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}
+
+\begin{frame}[fragile]{Boolean Logic and Comparisons}
+    \begin{codeblock}[Boolean Operations]
+        \begin{lstlisting}
+# Boolean values
+is_student = True
+is_graduated = False
+
+# Comparison operators
+x, y = 10, 20
+print(x == y)    # False (equal)
+print(x != y)    # True (not equal)
+print(x < y)     # True (less than)
+print(x <= y)    # True (less than or equal)
+print(x > y)     # False (greater than)
+print(x >= y)    # False (greater than or equal)
+
+# Logical operators
+age = 22
+has_license = True
+can_drive = age >= 18 and has_license
+print(can_drive)  # True
+
+# Truthiness in Python
+print(bool(0))        # False
+print(bool(1))        # True
+print(bool(""))       # False (empty string)
+print(bool("Hello"))  # True
+print(bool([]))       # False (empty list)
+print(bool([1, 2]))   # True
+        \end{lstlisting}
+    \end{codeblock}
+\end{frame}
