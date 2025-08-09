@@ -183,12 +183,8 @@ The content specifically addresses linear algebra applications in:
 - **Machine Learning**: Regression, classification, and model theory
 
 ## License
+Make full use of it. There is no need to acknowledge the source, but it is appreciated.
 
-This educational material is designed for academic use at AMMI and related educational institutions.
-
-## Author
-
-Created for the African Masters of Machine Intelligence (AMMI) program.
 
 ## Support
 
